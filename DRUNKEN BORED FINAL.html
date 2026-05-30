@@ -1,0 +1,2361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinking Game Cards - Ultimate Edition</title>
+<img src="https://i.ibb.co/B2QCsv5m/DRUNKENBOREDS.png" alt="Logo" class="bottom-img">
+    <!-- PWA Support -->
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkRyaW5raW5nIEdhbWUgQ2FyZHMiLAogICJzaG9ydF9uYW1lIjogIkRyaW5rR2FtZSIsCiAgImRlc2NyaXB0aW9uIjogIlVsdGltYXRlIGRyaW5raW5nIGdhbWUgd2l0aCA0IGVwaWMgZWRpdGlvbnMhIiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnljMFBiZzkwYVd4c2JHNXZiV0YwSWpvaU1qUXlNVEl6TVRSbU1EazJOamszT1RjNU1qazVNRGt3T1RjeU1qazVNRGt5T1RjeU1qazVNRGt5T1RjeU1qazVNRGt5T1RjeU1qazVNRGt5IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0sCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAidGhlbWVfY29sb3IiOiAiIzAwZmY4OCIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzAwMDAwMCIKfQ==">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DrinkGame">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            overflow-x: hidden;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 20px;
+            position: relative;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #00ff88, #00dd66, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0,255,136,0.6);
+            animation: glow 2s ease-in-out infinite alternate;
+        } body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
+.bottom-img {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+}
+}
+
+}
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(0,255,136,0.6)); }
+            to { filter: drop-shadow(0 0 20px rgba(0,255,136,0.9)); }
+        }     
+        .screen {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+        .how-to-play {
+            background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(0,221,102,0.1));
+            border: 2px solid rgba(0,255,136,0.3);
+            box-shadow: 0 8px 32px rgba(0,255,136,0.2);
+        }
+        .how-to-title {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #00ff88, #44ffaa, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0,255,136,0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        .how-to-section {
+            text-align: left;
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            border-left: 4px solid #00ff88;
+            box-shadow: inset 0 0 20px rgba(0,255,136,0.1);
+        }
+        .how-to-section h3 {
+            color: #00ff88;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0,255,136,0.5);
+        }
+        .how-to-section p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+        .rules-list li {
+            font-size: 1.05em;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            opacity: 0.95;
+            line-height: 1.5;
+            text-align: left;
+        }
+        .rules-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            font-size: 1.1em;
+        }
+        .step-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(45deg, #00ff88, #00dd66);
+            color: #000;
+            border-radius: 50%;
+            font-weight: bold;
+            line-height: 28px;
+            text-align: center;
+            margin-right: 12px;
+            font-size: 0.9em;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            text-align: left;
+        }
+        .step-item p {
+            margin: 0;
+            padding-top: 3px;
+        }
+        .btn {
+            background: linear-gradient(45deg, #333, #555);
+            border: 2px solid #666;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            color: #ffffff;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover::before { left: 100%; }
+        .btn:hover {
+            background: linear-gradient(45deg, #555, #777);
+            border-color: #888;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+        }
+        .btn-start {
+            background: linear-gradient(45deg, #00cc44, #00ee66);
+            border: 3px solid #00ff88;
+            box-shadow: 0 0 25px rgba(0,255,136,0.6), inset 0 0 20px rgba(0,255,136,0.2);
+            color: #000;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        .btn-start:hover {
+            box-shadow: 0 0 35px rgba(0,255,136,0.9), inset 0 0 25px rgba(0,255,136,0.3);
+            transform: translateY(-3px) scale(1.02);
+        }
+        .category-title {
+            font-size: 2em;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #00ff88, #44ffaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0,255,136,0.6);
+        }
+        .category-buttons { margin-bottom: 40px; }
+        .btn-category {
+            font-size: 1.1em;
+            padding: 15px 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            margin: 20px auto;
+            width: 260px;
+            display: block;
+            border-width: 3px;
+        }
+        .wildcard-btn {
+            background: linear-gradient(45deg, #8a00ff, #aa00ff);
+            border: 3px solid #cc44ff;
+            box-shadow: 0 0 20px rgba(204,68,255,0.8), 0 0 40px rgba(204,68,255,0.4), inset 0 0 20px rgba(204,68,255,0.2);
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(204,68,255,0.5);
+        }
+        .wildcard-btn:hover { 
+            box-shadow: 0 0 30px rgba(204,68,255,1), 0 0 60px rgba(204,68,255,0.6), inset 0 0 30px rgba(204,68,255,0.3); 
+            transform: translateY(-3px) scale(1.02); 
+        }
+        .bar-btn {
+            background: linear-gradient(45deg, #ff8800, #ffaa00);
+            border: 3px solid #ffcc44;
+            box-shadow: 0 0 20px rgba(255,204,68,0.8), 0 0 40px rgba(255,204,68,0.4), inset 0 0 20px rgba(255,204,68,0.2);
+            color: #000;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        .bar-btn:hover { 
+            box-shadow: 0 0 30px rgba(255,204,68,1), 0 0 60px rgba(255,204,68,0.6), inset 0 0 30px rgba(255,204,68,0.3); 
+            transform: translateY(-3px) scale(1.02); 
+        }
+        .spicy-btn {
+            background: linear-gradient(45deg, #ff0044, #ff2266);
+            border: 3px solid #ff6688;
+            box-shadow: 0 0 20px rgba(255,102,136,0.8), 0 0 40px rgba(255,102,136,0.4), inset 0 0 20px rgba(255,102,136,0.2);
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255,102,136,0.5);
+        }
+        .spicy-btn:hover { 
+            box-shadow: 0 0 40px rgba(255,102,136,1), 0 0 80px rgba(255,102,136,0.6), inset 0 0 30px rgba(255,102,136,0.3); 
+            transform: translateY(-3px) scale(1.02); 
+        }
+        .deep-btn {
+            background: linear-gradient(45deg, #0066ff, #0088ff);
+            border: 3px solid #44aaff;
+            box-shadow: 0 0 20px rgba(68,170,255,0.8), 0 0 40px rgba(68,170,255,0.4), inset 0 0 20px rgba(68,170,255,0.2);
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(68,170,255,0.5);
+        }
+        .deep-btn:hover { 
+            box-shadow: 0 0 30px rgba(68,170,255,1), 0 0 60px rgba(68,170,255,0.6), inset 0 0 30px rgba(68,170,255,0.3); 
+            transform: translateY(-3px) scale(1.02); 
+        }
+        .btn-easy {
+            background: linear-gradient(45deg, #00cc44, #00ee66);
+            border: 3px solid #00ff88;
+            box-shadow: 0 0 15px rgba(0,255,136,0.7), inset 0 0 15px rgba(0,255,136,0.2);
+            color: #000;
+        }
+        .btn-medium {
+            background: linear-gradient(45deg, #ffcc00, #ffdd44);
+            border: 3px solid #ffea88;
+            box-shadow: 0 0 15px rgba(255,234,136,0.7), inset 0 0 15px rgba(255,234,136,0.2);
+            color: #000;
+        }
+        .btn-hard {
+            background: linear-gradient(45deg, #ff4444, #ff6666);
+            border: 3px solid #ff8888;
+            box-shadow: 0 0 20px rgba(255,136,136,0.8), inset 0 0 20px rgba(255,136,136,0.2);
+            color: #ffffff;
+        }
+        .card {
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            border: 3px solid;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05);
+            animation: cardBounce 0.6s ease;
+            position: relative;
+            cursor: pointer;
+            touch-action: pan-y;
+        }
+        .card.wildcard { 
+            background: linear-gradient(135deg, #2a1a33 0%, #3a2a44 100%); 
+            border-color: #cc44ff; 
+            box-shadow: 0 0 25px rgba(204,68,255,0.5), 0 10px 30px rgba(0,0,0,0.8); 
+        }
+        .card.bar { 
+            background: linear-gradient(135deg, #332a1a 0%, #443a2a 100%); 
+            border-color: #ffcc44; 
+            box-shadow: 0 0 25px rgba(255,204,68,0.5), 0 10px 30px rgba(0,0,0,0.8); 
+        }
+        .card.spicy { 
+            background: linear-gradient(135deg, #331a1a 0%, #442a2a 100%); 
+            border-color: #ff6688; 
+            box-shadow: 0 0 30px rgba(255,102,136,0.6), 0 10px 30px rgba(0,0,0,0.8); 
+        }
+        .card.deep { 
+            background: linear-gradient(135deg, #1a2a33 0%, #2a3a44 100%); 
+            border-color: #44aaff; 
+            box-shadow: 0 0 25px rgba(68,170,255,0.5), 0 10px 30px rgba(0,0,0,0.8); 
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) rotate(-1deg); }
+            25% { transform: translateX(-8px) rotate(-2deg); }
+            75% { transform: translateX(8px) rotate(1deg); }
+        }
+        .card.shake { 
+            animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both; 
+            transform-origin: center;
+        }
+        @keyframes cardBounce {
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-10px) rotate(-1deg); }
+        }
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .card p {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+        .drink-amount {
+            background: linear-gradient(45deg, #ff4444, #ff6666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.6em;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255,68,68,0.5);
+        }
+        .deep-talks-title {
+            color: #44aaff;
+            text-shadow: 0 0 15px rgba(68,170,255,0.6);
+            background: linear-gradient(45deg, #44aaff, #66ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .progress-container {
+            margin: 20px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #44ffaa, #00ff88);
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 0 15px rgba(0,255,136,0.8);
+            position: relative;
+        }
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .progress-text {
+            font-size: 0.9em;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+        .finished-screen {
+            background: linear-gradient(135deg, #330000, #440000);
+            border: 3px solid #ff6688;
+            box-shadow: 0 0 40px rgba(255,102,136,0.6);
+        }
+        .finished-title {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #ffff44, #ffdd00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255,255,68,0.8);
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .final-stats {
+            font-size: 1.3em;
+            margin: 20px 0;
+            color: #ffdd88;
+            text-shadow: 0 0 10px rgba(255,221,136,0.5);
+        }
+        .hidden { display: none; }
+        .back-btn {
+            background: linear-gradient(45deg, #666, #888);
+            font-size: 1em;
+            padding: 12px 24px;
+            margin-top: 30px;
+        }
+        .back-btn:hover { background: linear-gradient(45deg, #777, #999); }
+        .restart-btn {
+            background: linear-gradient(45deg, #00cc44, #00ee66);
+            border: 3px solid #00ff88;
+            box-shadow: 0 0 25px rgba(0,255,136,0.8), inset 0 0 20px rgba(0,255,136,0.2);
+            font-size: 1.3em;
+            padding: 18px 36px;
+            text-transform: uppercase;
+            color: #000;
+            margin: 10px;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        .restart-btn:hover {
+            box-shadow: 0 0 40px rgba(0,255,136,1), inset 0 0 30px rgba(0,255,136,0.3);
+            transform: translateY(-3px) scale(1.02);
+        }
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffff44;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: explode 1s ease-out forwards;
+        }
+        @keyframes explode {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) translate(var(--dx), var(--dy));
+            }
+        }
+        .install-banner {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #00ff88, #44ffaa);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(0,255,136,0.4);
+            font-weight: bold;
+            z-index: 1000;
+            display: none;
+        }
+        .swipe-hint {
+            font-size: 0.8em;
+            opacity: 0.7;
+            margin-top: 10px;
+            font-style: italic;
+        }
+.bottom-image-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 80px;
+    z-index: 100;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0,255,136,0.4);
+    border: 3px solid rgba(0,255,136,0.6);
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+.bottom-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+    </style>
+</head>
+<body>
+    <!-- Install Banner -->
+    <div id="installBanner" class="install-banner">
+        Install for offline play! <span id="installClose" style="margin-left: 10px; cursor: pointer;">✕</span>
+    </div>
+    <div class="container">
+        <!-- START SCREEN -->
+        <div id="startScreen" class="screen">
+            <h1> DRUNKEN BORED</h1>
+            <button class="btn btn-start" onclick="showHowToPlay()">START GAME</button>
+            <p style="font-size: 0.9em; opacity: 0.7; margin-top: 20px;">
+                Tap cards to swipe next
+            </p>
+        </div>
+        <!-- HOW TO PLAY SCREEN (NEW) -->
+        <div id="howToPlayScreen" class="screen how-to-play hidden">
+            <h2 class="how-to-title">HOW TO PLAY</h2>
+            
+            <div class="how-to-section">
+                <h3>Gameplay</h3>
+                <div class="step-item">
+                    <p>The game starts with one player holding the phone.</p>
+                </div>
+                <div class="step-item">
+                    <p>That player reads one prompt out loud.</p>
+                </div>
+                <div class="step-item">
+                    <p>Everyone immediately reacts based on the prompt.</p>
+                </div>
+                <div class="step-item">
+                    <p>After reading, the phone is passed to the next player clockwise.</p>
+                </div>
+                <div class="step-item">
+                    <p>The next player reads the next prompt and the cycle continues.</p>
+                </div>
+            </div>
+            <div class="how-to-section">
+                <h3>Rules</h3>
+                <ul class="rules-list">
+                    <li>No one is forced to drink alcohol.</li>
+                    <li>No targeting sensitive or private topics.</li>
+                    <li>Respect personal boundaries.</li>
+                </ul>
+            </div>
+            <button class="btn btn-start" onclick="showCategories()">GOT IT!</button>
+            <button class="btn back-btn" onclick="showStart()">Back</button>
+        </div>
+        <!-- CATEGORY SCREEN -->
+        <div id="categoryScreen" class="screen hidden">
+            <h2 class="category-title">Choose Your Edition</h2>
+            <div class="category-buttons">
+                <button class="btn btn-category wildcard-btn" onclick="selectCategory('wildcard')">Wildcard Edition</button>
+                <button class="btn btn-category bar-btn" onclick="selectCategory('bar')">Bar Edition</button>
+                <button class="btn btn-category spicy-btn" onclick="selectCategory('spicy')">Spicy Edition</button>
+                <button class="btn btn-category deep-btn" onclick="selectCategory('deep')">Deep Talks Edition</button>
+            </div>
+            <button class="btn back-btn" onclick="showHowToPlay()">Back</button>
+        </div>
+        <!-- DIFFICULTY SCREEN -->
+        <div id="difficultyScreen" class="screen hidden">
+            <h2 id="categoryTitle" class="deep-talks-title">Category</h2>
+            <br>
+            <button class="btn btn-category btn-easy" onclick="selectDifficulty('easy')">EASY</button>
+            <button class="btn btn-category btn-medium" onclick="selectDifficulty('medium')">MEDIUM</button>
+            <button class="btn btn-category btn-hard" onclick="selectDifficulty('hard')">HARD</button>
+            <button class="btn back-btn" onclick="showCategories()">Back</button>
+        </div>
+        <!-- CARD SCREEN -->
+        <div id="cardScreen" class="screen hidden">
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Card 1 of 5</div>
+            </div>
+            
+            <div id="gameCard" class="card">
+                <h2 id="cardCategory"></h2>
+                <p id="cardText"></p>
+                <div class="swipe-hint">Swipe left or tap for next card</div>
+                <div style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">Fail or don't want to? → DRINK.</div>
+            </div>
+            <button class="btn" onclick="nextCard()">NEXT CARD</button>
+            <button class="btn back-btn" onclick="showDifficulty()">New Game</button>
+        </div>
+        <!-- FINISHED SCREEN -->
+        <div id="finishedScreen" class="screen hidden finished-screen">
+            <div class="fireworks" id="fireworks"></div>
+            <h2 class="finished-title">CARDS FINISHED!</h2>
+            <div class="final-stats">
+                <div id="totalCards">5</div> cards completed!<br>
+                <span id="finalCategory"></span>
+            </div>
+            <div style="font-size: 1.8em; margin: 25px 0; color: #ffdd88; text-shadow: 0 0 15px rgba(255,221,136,0.8); font-weight: bold;">
+                FINISH YOUR DRINK!
+            </div>
+            <button class="btn restart-btn" onclick="restartGame()">PLAY AGAIN</button>
+            <button class="btn back-btn" onclick="showStart()">Main Menu</button>
+        </div>
+    </div>
+    <!-- Sound Effects -->
+    <audio id="cardFlip" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcA..." type="audio/wav">
+    </audio>
+    <audio id="buttonClick" preload="auto">
+        <source src="data:audio/wav;base64,UklGRl8GAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcA..." type="audio/wav">
+    </audio>
+    <audio id="winSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRp4GAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcA..." type="audio/wav">
+    </audio>
+    <script>
+        let currentCategory = '';
+        let currentDifficulty = '';
+        let shuffledDeck = [];
+        let currentCardIndex = 0;
+        let isPWA = false;
+        let deferredPrompt;
+        const dares = {
+            wildcard: {
+                easy: ["This is a Free Pass. You can skip any one card at any time.",
+"This is a Reverse Card. Choose someone else to do your next card instead.",
+"This is a Double Trouble Card. Pick two people to complete the next card together.",
+"This is a Shield Card. You are immune from drinking once this round.",
+"This is a Control Card. You get to choose who goes next.",
+"Link arms with another player. For the next round, you must do everything together or both drink.",
+"Choose a partner. Speak in turns to form one sentence. Fail and both drink.",
+"Pick someone. Mirror each other’s actions for 1 round or drink.",
+"Choose a partner and hold pinkies. First to let go drinks.",
+"Pair up. One closes eyes while the other guides them to touch an object for 1 round.",
+"What is your most embarrassing moment? Answer or drink.",
+"Who in this group do you trust the least? Answer or drink.",
+"What is a secret you have never told anyone here? Answer or drink.",
+"Who was your first crush? Answer or drink.",
+"What is something you regret doing? Answer or drink.",
+"Have you ever lied to get out of trouble? Answer or drink.",
+"What is your biggest fear? Answer or drink.",
+"Who in this group do you like the most? Answer or drink.",
+"What is your worst habit? Answer or drink.",
+"Have you ever had a crush on someone here? Answer or drink.",
+"What is the most childish thing you still do? Answer or drink.",
+"What is your guilty pleasure? Answer or drink.",
+"What is something you are hiding right now? Answer or drink.",
+"Who would you date in this group? Answer or drink.",
+"What is your biggest insecurity? Answer or drink.",
+"What is the worst lie you have told? Answer or drink.",
+"Who do you think is the funniest here? Answer or drink.",
+"What is something risky you have done? Answer or drink.",
+"What is your biggest turn-off? Answer or drink.",
+"What is your biggest turn-on? Answer or drink.",
+"Starting with you, Take turns naming a fruit. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a countries alphabetically. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a animal. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a brands. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a foods that start with “B.” First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a movie. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a things First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a sports. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a colors. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a things you wear. First person repeat a word or hesitation takes drink.",
+"Last person to stand up drinks.",
+"Last person to touch their nose drinks.",
+"Last person to clap drinks.",
+"Last person to sit on the floor drinks.",
+"Last person to raise both hands drinks.",
+"Last person to spin around drinks.",
+"Last person to smile drinks.",
+"Last person to say “Go” drinks.",
+"Last person to point at someone drinks.",
+"Last person to blink twice drinks.",
+"Last person to jump drinks.",
+"Last person to cross their arms drinks.",
+"Last person to look left drinks.",
+"Last person to say their name drinks.",
+"Last person to snap fingers drinks.",
+"Last person to tap the table drinks.",
+"Last person to laugh drinks.",
+"Last person to touch their head drinks.",
+"Last person to wink drinks.",
+"Last person to sit back down drinks.",
+"Everyone votes on who is the funniest. That person chooses someone to drink.",
+"Everyone votes on who is most likely to get rich. That person drinks.",
+"Everyone votes on who is the most dramatic. That person drinks.",
+"Everyone votes on who is the most attractive. That person drinks.",
+"Everyone votes on who is the most talkative. That person drinks.",
+"Everyone votes on who is the laziest. That person drinks.",
+"Everyone votes on who is the smartest. That person picks someone to drink.",
+"Everyone votes on who is most likely to be late. That person drinks.",
+"Everyone votes on who is the most competitive. That person drinks.",
+"Everyone votes on who is the most unpredictable. That person drinks.",
+"Do 5 push-ups or drink.",
+"Dance for 10 seconds or drink.",
+"Sing a song or drink.",
+"Act like a baby for 15 seconds or drink.",
+"Do your best animal impression or drink.",
+"Pretend to be a robot for 20 seconds or drink.",
+"Spin around 5 times or drink.",
+"Speak in an accent for 1 round or drink.",
+"Do a funny face for 10 seconds or drink.",
+"Imitate someone in the group or drink.",
+"Clap nonstop for 15 seconds or drink.",
+"Walk like a model or drink.",
+"Act like you are freezing cold or drink.",
+"Pretend to cry dramatically or drink.",
+"Do a slow-motion walk or drink.",
+"Say the alphabet backwards or drink.",
+"Act like a teacher scolding a student or drink.",
+"Do jumping jacks for 10 seconds or drink.",
+"Pretend to be a superhero or drink.",
+"Freeze in place for 15 seconds or drink.",
+"All people who have a pet drink.",
+"All people who are single drink.",
+"All people who have traveled outside the country drink.",
+"All people who play mobile games drink.",
+"All people who love spicy food drink.",
+"All people who sleep late drink.",
+"All people who watch movies often drink.",
+"All people who like coffee drink.",
+"All people who exercise drink.",
+"All people who use social media daily drink.",
+"Say a tongue twister three times fast or drink.",
+"Speak without using the letter “A” for one round or drink.",
+"Talk like a cartoon character for 30 seconds or drink.",
+"Rap anything for 15 seconds or drink.",
+"Say a joke and make someone laugh or drink.",
+"Talk in slow motion for one round or drink.",
+"Speak like a news reporter or drink.",
+"Say something nice about everyone or drink.",
+"Describe yourself in 3 words or drink.",
+"Count from 1 to 20 in a funny voice or drink.",
+"Show your last chat conversation or drink.",
+"Show your most recent photo or drink.",
+"Show your screen time or drink.",
+"Show your last search history or drink.",
+"Show your last social media message or drink.",
+"Dictator Round: You control the game for 30 seconds. Everyone must follow your commands.",
+"Puppet Master: Pick one player. They cannot speak for 1 round.",
+"Reverse Control: Everyone controls you for 1 round.",
+"Bodyguard: Choose a player. When they drink, you drink instead, for 2 round.",
+"Sacrifice: Drink 3 or give out 6 drinks total.",
+"Debt Collector: Everyone owes you 1 drink anytime later.",
+"Mute Button: Pick 2 players. They cannot talk for 1 round.",
+"Mirror Curse: Pick someone. When you drink, they drink too for 1 round.",
+"Executioner: Pick a player, the group decides dare or drinks.",
+"Anyone wearing white, drink.",
+"Anyone wearing green, drink.",
+"Anyone wearing shoes indoors, drink.",
+"Anyone wearing a cap, drink.",
+"Anyone wearing short sleeves, drink.",
+"Anyone wearing earrings, drink.",
+"Anyone wearing a necklace, drink.",
+"Anyone with tied-up hair, drink.",
+"Anyone carrying a bag, drink.",
+"Anyone holding something in both hands, drink.",
+],
+                medium: ["You may cancel any one card used against you this round.",
+"Choose someone to automatically skip their next turn.",
+"Force two players to swap roles for the next round.",
+"You are immune from all drinking penalties for 3 rounds.",
+"You may change any one rule of the game once.",
+"Choose a partner. You must answer all questions together or both  Drink.",
+"Link with someone. You cannot stop mirroring each other for 3 minutes or both  Drink.",
+"Choose a partner. Alternate speaking to form a story or both  Drink.",
+"Pick someone. Maintain eye contact for 30 seconds without laughing or both  Drink.",
+"Pair up. One person acts, the other must guess correctly or both  Drink.",
+"What is your biggest secret that no one here knows? Answer or  Drink.",
+"Who in this group do you find most annoying and why? Answer or  Drink.",
+"What is the worst thing you have done to someone? Answer or  Drink.",
+"Have you ever lied to someone here? What was it? Answer or  Drink.",
+"What is your most embarrassing memory? Answer or  Drink.",
+"What is something you are afraid people will find out about you? Answer or  Drink.",
+"Who was your worst crush and why? Answer or  Drink.",
+"What is your biggest regret in life so far? Answer or  Drink.",
+"What is something you would never admit publicly? Answer or  Drink.",
+"Who in this group do you trust the least? Answer or  Drink.",
+"What is your worst habit that you hide? Answer or  Drink.",
+"Have you ever betrayed a friend? Answer or  Drink.",
+"What is your most childish behavior? Answer or  Drink.",
+"What is something you wish you could change about yourself? Answer or  Drink.",
+"Who do you secretly compete with? Answer or  Drink.",
+"What is your most awkward moment in public? Answer or  Drink.",
+"What is a lie you tell often? Answer or  Drink.",
+"What is something you are jealous of? Answer or  Drink.",
+"What is your biggest insecurity? Answer or  Drink.",
+"What is something you would never want repeated outside this room? Answer or  Drink.",
+"Starting with you, Take turns naming a countries. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a foods. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a movies. First person repeat or hesitation takes drink.",
+"Starting with you, Take turns naming a celebrities. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a animals. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a things you find in school. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a sports First. person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a colors. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a brands. First person repeat a word or hesitation takes drink.",
+"Starting with you, Take turns naming a emotions or feelings. First person repeat a word or hesitation takes drink.",
+"Last person to touch their head takes a Drink.",
+"Last person to stand up takes a Drink.",
+"Last person to sit down takes a Drink.",
+"Last person to clap takes a Drink.",
+"Last person to point at someone takes a Drink.",
+"Last person to smile takes a Drink.",
+"Last person to blink twice takes a Drink.",
+"Last person to raise their hand takes a Drink.",
+"Last person to say their name takes a Drink.",
+"Last person to spin takes a Drink.",
+"Last person to jump takes a Drink.",
+"Last person to cross arms takes a Drink.",
+"Last person to look away takes a Drink.",
+"Last person to laugh takes a Drink.",
+"Last person to tap the table takes a Drink.",
+"Last person to say “go” takes a Drink.",
+"Last person to freeze takes a Drink.",
+"Last person to snap fingers takes a Drink.",
+"Last person to touch the floor takes a Drink.",
+"Last person to sit still takes a Drink.",
+"Everyone votes on the most competitive person. That person takes a Drink.",
+"Everyone votes on the most forgetful person. That person takes a Drink.",
+"Everyone votes on the funniest person. That person chooses someone to  Drink.",
+"Everyone votes on the most dramatic person. That person takes a Drink.",
+"Everyone votes on the most mysterious person. That person takes a Drink.",
+"Everyone votes on the most talkative person. That person takes a Drink.",
+"Everyone votes on the most likely to succeed. That person takes a Drink.",
+"Everyone votes on the most stubborn person. That person takes a Drink.",
+"Everyone votes on the most unpredictable person. That person takes a Drink.",
+"Everyone votes on the most confident person. That person chooses someone else to  Drink.",
+"Do 10 push-ups or  Drink.",
+"Dance without music for 15 seconds or  Drink.",
+"Sing a chorus of any song or  Drink.",
+"Act like your favorite animal for 20 seconds or  Drink.",
+"Do your best impression of someone in the group or  Drink.",
+"Speak in an accent for one full round or  Drink.",
+"Walk across the room dramatically or  Drink.",
+"Freeze in place when someone says “stop” or  Drink.",
+"Tell a joke and try to make someone laugh or  Drink.",
+"Do 15 jumping jacks or  Drink.",
+"Pretend you are a news reporter for 20 seconds or  Drink.",
+"Act like you are in slow motion for one round or  Drink.",
+"Recite the alphabet backwards or  Drink.",
+"Do your best villain laugh or  Drink.",
+"Pretend to be a teacher giving a lesson or  Drink.",
+"Spin 5 times and walk straight or  Drink.",
+"Act like a robot for 20 seconds or  Drink.",
+"Hold a dramatic pose for 15 seconds or  Drink.",
+"Speak only in questions for one round or  Drink.",
+"Do your best celebrity impression or  Drink.",
+"All people who stayed up late last night  Drink.",
+"All people who have ever skipped class  Drink.",
+"All people who are currently tired  Drink.",
+"All people who use social media daily  Drink.",
+"All people who overthink things  Drink.",
+"All people who are hungry right now  Drink.",
+"All people who have a favorite teacher  Drink.",
+"All people who have ever been late  Drink.",
+"All people who enjoy spicy food  Drink.",
+"All people who have a hidden talent  Drink.",
+"Speak without pausing for 20 seconds or  Drink.",
+"Say the tongue twister correctly twice or  Drink.",
+"Talk like a robot for one full round or  Drink.",
+"Describe yourself using only 3 words or  Drink.",
+"Rap anything for 15 seconds or  Drink.",
+"Say something nice about every player or  Drink.",
+"Tell a fake story and make it believable or  Drink.",
+"Speak in slow motion for one round or  Drink.",
+"Say the alphabet in reverse or  Drink.",
+"Explain your last meal in dramatic detail or  Drink.",
+"Show your most recent photo on your phone or  Drink.",
+"Show your last message sent or  Drink.",
+"Show your last search history or  Drink.",
+"Show your screen time for today or  Drink.",
+"Show your most used app this week or  Drink.",
+"Dictator Round: You control the game for 30 seconds and everyone must follow your commands.",
+"Puppet Master: Pick one player. They cannot speak for one round.",
+"Reverse Control: Everyone controls you for one round.",
+"Bodyguard: Choose one player. When they drink, you drink instead.",
+"Sacrifice: Drink 3 or give out a total of 6 drinks.",
+"Kingmaker: Pick a player. They are immune or their drinks are doubled for one round.",
+"Debt Collector: Everyone owes you 1 drink anytime later.",
+"Mute Button: Pick 2 players. They cannot talk for one round.",
+"Mirror Curse: Pick one player. When you drink, they drink the same amount for 1 round.",
+"Power Swap: Swap roles or effects with another player.",
+"Executioner: Pick one player. Group decides dare or 4 drinks.",
+"Anyone wearing black, drink.",
+"Anyone wearing blue, drink.",
+"Anyone wearing slippers, drink.",
+"Anyone barefoot, drink.",
+"Anyone wearing long sleeves, drink.",
+"Anyone wearing glasses, drink.",
+"Anyone wearing rings, drink.",
+"Anyone with long hair, drink.",
+"Anyone with curly hair, drink.",
+"Anyone holding keys, drink.",],
+                hard: [
+"Cancel any one punishment directed at you and assign it to someone else.",
+"Skip your next one penalties completely.",
+"Reverse any group vote result once.",
+"Choose two players to swap all penalties for the next 3 rounds.",
+"Choose a partner. Answer every question as if you are the same person or both take a drink.",
+"Link with someone and mirror their movements exactly for 3 minutes without breaking.",
+"Pair up. One speaks, the other can only say yes or no for one full round.",
+"Choose a partner. Maintain eye contact without smiling for 45 seconds or both take a drink.",
+"Pair up. Tell a story alternating words one-by-one. First mistake or hesitation means both take a drink.",
+"What is something you have done that you hope no one here ever finds out?",
+"Who in this group do you secretly not like and why?",
+"What is your most manipulative behavior you’ve used on someone?",
+"What is the worst lie you’ve ever told someone close to you?",
+"Have you ever betrayed a friend? Explain.",
+"What is your most toxic habit in relationships?",
+"What is something you are ashamed of liking?",
+"Who do you think is the most fake in this group?",
+"What is your biggest insecurity that affects your behavior?",
+"What is something you would never admit publicly?",
+"What is the worst decision you made recently?",
+"Have you ever talked behind someone’s back here?",
+"What is something you regret saying to someone?",
+"What is your most selfish action?",
+"Who here would you never trust with a secret?",
+"What is your biggest fear about how others see you?",
+"What is something you pretend to like but actually don’t?",
+"What is your most embarrassing private habit?",
+"What is something you are hiding emotionally right now?",
+"What is the most hurtful thing you’ve ever said?",
+"Name countries alphabetically. First mistake or hesitation takes a drink.",
+"Name movies continuously. Repeat or pause means drink.",
+"Name foods without repeating. Fail means drink.",
+"Name celebrities alternating players. Hesitate means drink.",
+"Name objects you can see right now. First delay means drink.",
+"Name emotions in order. Repeat means drink.",
+"Name sports without stopping. Break chain means drink.",
+"Name brands you’ve used before. Hesitate means drink.",
+"Name school subjects. First mistake means drink.",
+"Name things you would bring to an island. Fail means drink.",
+"Last person to touch their head takes a drink.",
+"Last person to stand up takes a drink.",
+"Last person to sit down takes a drink.",
+"Last person to clap takes a drink.",
+"Last person to say their name takes a drink.",
+"Last person to blink twice takes a drink.",
+"Last person to smile takes a drink.",
+"Last person to point at someone takes a drink.",
+"Last person to spin takes a drink.",
+"Last person to raise their hand takes a drink.",
+"Last person to freeze takes a drink.",
+"Last person to laugh takes a drink.",
+"Last person to look away takes a drink.",
+"Last person to jump takes a drink.",
+"Last person to snap fingers takes a drink.",
+"Last person to touch the floor takes a drink.",
+"Last person to say go takes a drink.",
+"Last person to cross arms takes a drink.",
+"Last person to sit still takes a drink.",
+"Last person to make eye contact takes a drink.",
+"Everyone votes on the most dishonest person. That person takes a drink.",
+"Everyone votes on the most dramatic person. That person takes a drink.",
+"Everyone votes on the most controlling person. That person takes a drink.",
+"Everyone votes on the most annoying habit. That person takes a drink.",
+"Everyone votes on the most competitive person. That person takes a drink.",
+"Everyone votes on the most unpredictable person. That person takes a drink.",
+"Everyone votes on the most likely to lie. That person takes a drink.",
+"Everyone votes on the most secretive person. That person takes a drink.",
+"Everyone votes on the most talkative person. That person takes a drink.",
+"Everyone votes on the most intimidating person. That person takes a drink.",
+"Do 20 push-ups or take a drink.",
+"Act like your biggest fear for 20 seconds or take a drink.",
+"Speak in an accent for 2 full rounds or take a drink.",
+"Do your most embarrassing impression or take a drink.",
+"Tell a deeply embarrassing story or take a drink.",
+"Let someone choose your next action or take a drink.",
+"Stand in a dramatic pose for 30 seconds or take a drink.",
+"Speak only in questions for one full round or take a drink.",
+"Pretend you are in a serious interview or take a drink.",
+"Act like a villain explaining your plan or take a drink.",
+"Do a slow walk across the room without laughing or take a drink.",
+"Let the group decide your next sentence or take a drink.",
+"Try to make someone laugh without speaking or take a drink.",
+"Pretend you are famous for 30 seconds or take a drink.",
+"Do a dramatic crying scene or take a drink.",
+"Hold eye contact until someone breaks or take a drink.",
+"Act like you are in a horror movie scene or take a drink.",
+"Speak like a robot explaining emotions or take a drink.",
+"Do 15 jumping jacks while being watched or take a drink.",
+"Let someone mimic you and you must not react or take a drink.",
+"All people who have lied recently take a drink.",
+"All people who are overthinking something take a drink.",
+"All people who have a secret right now take a drink.",
+"All people who have ever ghosted someone take a drink.",
+"All people who are tired right now take a drink.",
+"All people who have pretended to like something take a drink.",
+"All people who have argued today take a drink.",
+"All people who are hungry right now take a drink.",
+"All people who have trust issues take a drink.",
+"All people who are hiding something emotional take a drink.",
+"Speak without stopping for 30 seconds or take a drink.",
+"Say something deeply embarrassing about yourself or take a drink.",
+"Describe your biggest flaw honestly or take a drink.",
+"Speak only in one-word answers for a round or take a drink.",
+"Tell a fake but believable story or take a drink.",
+"Say everything you think for 10 seconds or take a drink.",
+"Talk like you are in a documentary or take a drink.",
+"Say a secret without naming names or take a drink.",
+"Explain your worst habit in detail or take a drink.",
+"Confess something you usually hide or take a drink.",
+"Show your most recent message sent.",
+"Show your last deleted photo.",
+"Show your most searched item recently.",
+"Show your screen time report.",
+"Show your most used app this week.",
+"Dictator Round: control the game for 30 seconds and assign drinks or dares.",
+"Reverse Control: everyone controls you for 1 round.",
+"Bodyguard: you drink instead of a chosen player for 1 round.",
+"Sacrifice: drink 3 yourself or distribute 6 drinks.",
+"Kingmaker: choose immunity or doubled the drinks for a player.",
+"Debt Collector: everyone owes you 1 drink.",
+"Mute Button: 2 players cannot talk for 1 round or they drink.",
+"Mirror Curse: whenever you drink, target drinks too.",
+"Power Swap: switch roles or effects with a player.",
+"Executioner: group decides dare or 4 drinks.",
+"Anyone wearing red, drink.",
+"Anyone wearing yellow, drink.",
+"Anyone wearing socks, drink.",
+"Anyone wearing a hoodie, drink.",
+"Anyone wearing a jacket, drink.",
+"Anyone wearing a watch, drink.",
+"Anyone with dyed hair, drink.",
+"Anyone with hair covering their face, drink.",
+"Anyone holding a phone, drink.",
+"Anyone not holding anything, drink."]
+            },
+            bar: {
+                easy: ["Anyone who is currently holding your drink in your right hand, take a drink and switch hands.",
+"Anyone who took a taxi, including a transportation app, to get to this bar must take a drink.",
+"Anyone who pre-gamed before arriving at this venue, take a drink.",
+"Everyone who is currently wearing uncomfortable shoes just to look good must take a drink.",
+"Anyone who has already taken a mirror selfie in the bar bathroom tonight, take a drink.",
+"Anyone who has already complained about the line or the cover charge must take a drink.",
+"If your current drink has an umbrella, a piece of fruit, or looks tropical, take a drink.",
+"Anyone who is currently wearing all black must proudly take a drink.",
+"Anyone who already made awkward eye contact with a stranger tonight and looked away, take a drink.",
+"If you currently have an open tab at the bar, take a drink.",
+"The Wingman: You can use it to force another player to help you complete an embarrassing public dare.",
+"Liquid Courage: You can use it once to completely skip a dare.",
+"Veto Power: You can cancel any group vote for the rest of the night, but you must take a drink when you play this card.",
+"Bathroom Pass: the next time the group decides nobody can go to the bathroom, you are allowed to go without taking a penalty drink.",
+"The Bartender's Bestie: You can assign your next drinking penalty to any player who is currently holding an empty glass.",
+"The Bodyguards: Choose a partner; for the next three rounds, if one of you goes to the bathroom or the bar, the other must escort you, or you both take a drink.",
+"Fake Couple: Pick a partner; if any stranger talks to either of you for the next 20 minutes, you must pretend to be deeply in love, or both take a drink.",
+"Drink Buddies: Choose a player; whenever they take a drink for the next three rounds, you must take a drink with them.",
+"Dance Partners: You and the person to your left must stand up and dance together for the entire duration of the next song, or both take a drink.",
+"The Mimics: You and the person across from you must mirror each other's drinking motions for three rounds; if you forget, you both take a drink.",
+"Show the group the oldest photo on your camera roll, or take a drink.",
+"Let the person to your left scroll your Instagram or TikTok feed for 10 seconds, or take a drink.",
+"Show the last text you sent to your ex, or take a drink.",
+"Show the group your “Frequently Used” emojis keyboard, or take a drink.",
+"Let the group pick a random contact and send them a selfie right now, or take a drink.",
+"Open your notes app and show the group your most recent note, or take a drink.",
+"Show the group your daily screen time stats, or take a drink.",
+"Show the group the last song you listened to on Spotify/Apple Music, or take a drink.",
+"Let someone in the group read the last DM you received, or take a drink.",
+"Show the group your last 5 Google searches, or take a drink.",
+"Show your lock screen and home screen wallpaper to everyone, or take a drink.",
+"Show the most embarrassing photo of yourself from your “Favorites” album, or take a drink.",
+"Show the group the last TikTok or Reel you liked, or take a drink.",
+"Open your delivery app (UberEats/DoorDash) and show your last late-night order, or take a drink.",
+"Let the group see who the last person you searched for on Instagram is, or take a drink.",
+"Show the alarm times you have set for tomorrow morning, or take a drink.",
+"Open your camera, take a wildly unflattering 0.5x wide-angle selfie with the flash on, and leave it open on your phone, or take a drink.",
+"Show the last text message you received from your mom or dad, or take a drink.",
+"Let the person to your right take a picture on your phone to keep in your gallery forever, or take a drink.",
+"Show the group your blocked contacts list and point to one person, or take a drink.",
+"Hold up a piece of ice from your drink.",
+"Pull out a physical credit card or ID; the last person to show one takes a drink.",
+"Point to a stranger in the bar wearing a hat; the last person to point takes a drink.",
+"Balance a coaster (or phone) on your head; the first person who drops it takes a drink.",
+"Hold up a photo of a pet on your phone screen; the last person to do it takes a drink.",
+"Find a napkin and hold it in the air; the last person to do it takes a drink.",
+"Point to a red neon sign or a red light in the bar; the last person to point takes a drink.",
+"Show the bartender (from afar) a thumbs up; the last person to do it takes a drink.",
+"Turn on your phone's flashlight and hold it up; the last person to do it takes a drink.",
+"Put your drink on the table and put both hands on your head; the last person to do it takes a drink.",
+"The last person to raise their glass in the air takes a drink.",
+"The last person to high-five the person to their left takes a drink.",
+"The last person to clink their glass with the person across from them takes a drink.",
+"The last person to touch the actual table takes a drink.",
+"The last person to point toward the bar takes a drink.",
+"The last person to check their phone screen takes a drink.",
+"The last person to pretend to take a shot takes a drink.",
+"The last person to put both hands in the air takes a drink.",
+"The last person to tap their foot to the beat of the music takes a drink.",
+"The last person to make a heart shape with their hands takes a drink.",
+"Point to the person most likely to get lost in the club tonight; the winner takes a drink.",
+"Point to the person most likely to buy a round of shots for everyone; the winner takes a drink.",
+"Point to the person who is objectively the worst dancer; the winner takes a drink.",
+"Point to the person most likely to flirt with the bouncer to skip the line; the winner takes a drink.",
+"Point to the person most likely to lose their credit card tonight; the winner takes a drink.",
+"Point to the person who is the worst drunk texter; the winner takes a drink.",
+"Point to the person most likely to end up at a fast-food drive-thru at 3 AM; the winner takes a drink.",
+"Point to the person most likely to make a new best friend in the bathroom; the winner takes a drink.",
+"Point to the person who will be the first to complain that their feet hurt; the winner takes a drink.",
+"Point to the person most likely to accidentally spill their drink on a stranger; the winner takes a drink.",
+"Walk up to a stranger and mime asking if you can borrow a lighter, or take a drink.",
+"Give a high-five to a bouncer, security guard, or bartender, or take a drink.",
+"Do the Macarena on the dance floor or near your table for 15 seconds, or take a drink.",
+"Walk up to a stranger, look panicked, and show them your empty wrist like you lost a watch, or take a drink.",
+"Walk over to another table and clink glasses with a group of strangers, or take a drink.",
+"Point at a stranger's shoes and give them a highly exaggerated thumbs-up, or take a drink.",
+"Hand your phone to a stranger and use hand gestures to ask them to take a group photo of your table, or take a drink.",
+"Walk past a group of strangers and aggressively high-five one of them, or take a drink.",
+"Dance like a robot to whatever song is currently playing for 15 seconds, or take a drink.",
+"Go to the bar and order a glass of tap water using only sign language/pointing, or take a drink.",
+"Tap a stranger on the shoulder and point to the bathroom with a confused face, or take a drink.",
+"Give a standing ovation for 10 seconds right where you are sitting, or take a drink.",
+"Spin around in a circle three times in the middle of the crowd, or take a drink.",
+"Walk up to the DJ booth (or as close as you can get) and bow deeply, or take a drink.",
+"Dance with your drink as your romantic partner for 30 seconds, or take a drink.",
+"Find someone taking a selfie and completely photobomb it in the background, or take a drink.",
+"Pretend to dramatically stretch like you are preparing for a marathon in the middle of the room, or take a drink.",
+"Stand on your tiptoes and wave enthusiastically at someone across the bar who isn't looking, or take a drink.",
+"Make intense eye contact with a stranger across the room and give them a very slow, dramatic nod, or take a drink.",
+"Do a dramatic dip (like in a tango dance) with the person sitting next to you, or take a drink.",
+"All people who are wearing sneakers to the bar tonight must take a drink.",
+"All people who are drinking something clear (vodka, gin, water) must take a drink.",
+"All people who have been to this specific venue before tonight must take a drink.",
+"All people who are currently chewing gum must take a drink.",
+"All people who brought a jacket but are carrying it must take a drink.",
+"All people who currently have a cracked phone screen must take a drink.",
+"All people who are wearing a watch or smartwatch must take a drink.",
+"All people who have already visited the bathroom tonight must take a drink.",
+"All people whose phone battery is currently under 30% must take a drink.",
+"All people who have work or class tomorrow morning must take a drink.",
+"Walk up to a stranger, look panicked, and ask, “Excuse me, what year is it? Did the time machine work?” or take a drink.",
+"Order your next drink (or a water) from the bartender using a terrible fake accent, or take a drink.",
+"Walk past a group of strangers and speak into your wrist/watch like a secret agent: “The eagle has landed. Requesting backup,” or take a drink.",
+"Howl like a wolf as loud as you can for three seconds, or take a drink.",
+"Go up to a stranger and sincerely ask them to settle a debate: “What is the best dinosaur?” or take a drink.",
+"Loudly declare to your table, “I'm telling you, I could have been a professional breakdancer!” so the surrounding tables hear you, or take a drink.",
+"Sing the chorus of “Happy Birthday” to a random person at your table loudly enough that strangers look over, or take a drink.",
+"Narrate the dance moves of a stranger across the room like a nature documentary narrator for 30 seconds, or take a drink.",
+"Ask a stranger if they genuinely believe a hotdog is a sandwich, or take a drink.",
+"Walk up to someone and ask if they have seen your runaway pet iguana, or take a drink.",
+"Start a slow clap in the middle of the bar and do not stop until at least one stranger joins in, or take a drink.",
+"Loudly say, “Wait, this isn't the library?!” to your friends, or take a drink.",
+"Compliment a stranger on a very specific, weird feature (e.g., “You have incredible elbows”), or take a drink.",
+"Ask a bouncer, security guard, or bartender what their astrological sign is, or take a drink.",
+"Go to a stranger and say, “You look exactly like my imaginary friend from childhood,” or take a drink.",
+"Yell “BINGO!” at the top of your lungs for absolutely no reason, or take a drink.",
+"Pretend you are taking an urgent phone call and argue loudly with an imaginary person about stolen Tupperware for 20 seconds, or take a drink.",
+"Ask the nearest stranger for their autograph, insisting that you know they are a famous celebrity in disguise, or take a drink.",
+"Give a passionate 30-second motivational speech to your own drink before taking a sip, or take a drink.",
+"Tap a stranger on the shoulder and ask, “Do you come here often, or are you just a mirage?” or take a drink.",
+"Text your mom or dad, “I'm having a great time at the library,” or take a drink.",
+"Show the group the last photo you took tonight, or take a drink.",
+"Text a friend who isn't here, “The bouncer just kicked me out,” or take a drink.",
+"Open your banking app and show the person to your right your current checking balance, or take a drink.",
+"Post a completely blurry, meaningless photo of a wall or the floor on your social media story, or take a drink.",],
+                medium: ["If you are currently wearing something you have worn on a first date, take a shot.",
+"Anyone who has opened a dating app since arriving at the bar tonight must take a shot.",
+"If you have ever kissed a stranger on a dance floor, take a shot to celebrate.",
+"Everyone who is wearing perfume or cologne meant to attract someone tonight must take a shot.",
+"If you currently have an ex blocked on your phone, take a shot and assign a shot.",
+"Anyone who is taking shots tonight specifically to forget about a stressful week, take a shot.",
+"If you have already made eye contact with a stranger you find attractive tonight, take a shot.",
+"Anyone who touched up their hair or makeup in the bar bathroom tonight must take a shot.",
+"If you are secretly hoping to go home with someone tonight, take a shot.",
+"If you have ever let a stranger buy you a drink with zero intention of talking to them, take a shot.",
+"The Wingman: You can use it to force another player to walk up to a stranger and be your hype-man/wingman for 30 seconds.",
+"Liquid Courage: You can use it once to completely skip any dare, but you must take a shot to do so.",
+"The Target: Pick a stranger in the bar. If that stranger looks at your table during the next one round, everyone at the table must take a shot.",
+"Bathroom Pass: You are the only person allowed to leave for the bathroom during a group freeze/scavenger hunt round without taking a penalty shot.",
+"The Bartender's Bestie: You can assign your next drinking penalty to whoever in the group has the most full drink right now.",
+"The Flirts: Choose a partner; for the next three rounds, if either of you gets approached by a stranger, you must pretend to be a couple, or both take a shot.",
+"Fake Exes: Pick a partner; for the next 20 minutes, if you two talk, you must dramatically bicker like a toxic divorced couple, or both take a shot.",
+"Drink Buddies: Choose a player; whenever they take a shot for the next three rounds, you must take a shot with them.",
+"Dance Partners: You and the person to your left must stand up and dance closely together for the entire duration of the next song, or both take a shot.",
+"The Mimics: You and the person across from you must mirror each other's drinking and body language for three rounds; if you break character, both take a shot.",
+"Show the group a dating app match you matched with but never messaged, or take a shot.",
+"Open your “Hidden” photos album, scroll quickly for 3 seconds while the group watches, or take a shot.",
+"Show the group the Instagram profile of the last person you hooked up with, or take a shot.",
+"Show the group the most embarrassing drunk text you have ever sent, or take a shot.",
+"Let the person to your right read your most recent Hinge/Tinder message out loud, or take a shot.",
+"Show a selfie in your camera roll that you took but decided was too “thirsty” to post, or take a shot.",
+"Show the group the contact name of your most recent sneaky link, or take a shot.",
+"Show the last screenshot you took of someone else’s social media or text conversation, or take a shot.",
+"Show your camera roll from your wildest, messiest night out, or take a shot.",
+"Show the group the last person you searched for on Facebook, or take a shot.",
+"Scroll through your blocked list for 5 seconds while everyone watches, or take a shot.",
+"Let the group pick a random contact and send them a “😉” emoji right now, or take a shot.",
+"Show the group the last person you left on “Read,” or take a shot.",
+"Show the search bar history on your Instagram, or take a shot.",
+"Show the group the last song you added to your “bedroom” or “mood” playlist, or take a shot.",
+"Let the person to your left swipe on your dating app 5 times (or like 5 random photos on IG if you don't have one), or take a shot.",
+"Open your photos to exactly one year ago today and show the group what you were doing, or take a shot.",
+"Show the group your most unhinged or embarrassing note in your Notes app, or take a shot.",
+"Show a picture of your weirdest celebrity crush, or take a shot.",
+"Show the most recent photo of you looking completely messy or intoxicated, or take a shot.",
+"Hold up a piece of fruit (lime/lemon) from a drink; the last person to do it takes a shot.",
+"Find a stranger wearing leather and point to them; the last person to point takes a shot.",
+"Hold up a crumpled receipt or bar napkin; the last person to do it takes a shot.",
+"Show a dating app icon on your phone's home screen; the last person to show it takes a shot.",
+"Point to the most attractive stranger in the room; the last person to point takes a shot.",
+"Hold up a physical dollar bill or credit card; the last person to do it takes a shot.",
+"Point to a bartender actively shaking or pouring a drink; the last person to point takes a shot.",
+"Point to a couple in the bar who looks like they are on an awkward first date; the last person to point takes a shot.",
+"Hold up a piece of jewelry you are currently wearing; the last person to do it takes a shot.",
+"Show a lipstick mark (on a glass, a napkin, or skin); the last person to do it takes a shot.",
+"The last person to bite their lip sensually takes a shot.",
+"The last person to wink at the group takes a shot.",
+"The last person to touch the knee of the person to their left takes a shot.",
+"The last person to pretend to take a shot takes a shot.",
+"The last person to point to the hottest person at your own table takes a shot.",
+"The last person to run their hands through their hair takes a shot.",
+"The last person to trace the rim of their glass with their finger takes a shot.",
+"The last person to put their finger to their lips and go “shhh” takes a shot.",
+"The last person to cross their arms protectively takes a shot.",
+"The last person to pull down their collar slightly to show their collarbone takes a shot.",
+"Point to the person most likely to go home with a stranger tonight; the winner takes a shot.",
+"Point to the person most likely to give out a fake number; the winner takes a shot.",
+"Point to the person most likely to text their toxic ex at 2 AM tonight; the winner takes a shot.",
+"Point to the person who is the best at shamelessly flirting with bartenders; the winner takes a shot.",
+"Point to the person most likely to Irish exit just to go hook up with someone; the winner takes a shot.",
+"Point to the person most likely to have a secret sugar daddy or mommy; the winner takes a shot.",
+"Point to the person most likely to get rejected tonight and cry about it; the winner takes a shot.",
+"Point to the person who has the most wild one-night stand stories; the winner takes a shot.",
+"Point to the person who is dressed the best for a date night right now; the winner takes a shot.",
+"Point to the person most likely to wake up tomorrow with no memory of getting home; the winner takes a shot.",
+"Walk up to a stranger and ask them to rate your outfit out of 10, or take a shot.",
+"Ask a stranger if they are single, and when they answer, say “Asking for a friend,” and walk away, or take a shot.",
+"Give a stranger a bar napkin with a fake phone number and a wink, or take a shot.",
+"Ask a stranger to buy you a drink (if they say no, you take a shot).",
+"Walk up to a stranger and tell them they smell amazing, or take a shot.",
+"Make prolonged eye contact with a stranger across the room and slowly toast your glass to them, or take a shot.",
+"Ask a stranger to take a photo of you, and strike a highly seductive pose, or take a shot.",
+"Walk up to the bar and tell the bartender they are looking really good tonight, or take a shot.",
+"Walk past someone attractive and blatantly look them up and down, or take a shot.",
+"Go up to a group of strangers and ask which one of them is the best kisser, or take a shot.",
+"Ask a stranger if they believe in love at first sight, or if you should walk by again, or take a shot.",
+"High-five a stranger, wink at them, and walk away without saying a word, or take a shot.",
+"Ask a stranger if they will hold your hand for 5 seconds for good luck, or take a shot.",
+"Walk up to a stranger and tell them they look exactly like your next mistake, or take a shot.",
+"Ask a stranger to guess your “body count,” or take a shot.",
+"Walk up to a table of strangers and ask if anyone wants to arm wrestle, or take a shot.",
+"Find someone who is your exact “type” and ask them what their astrological sign is, or take a shot.",
+"Stand next to a stranger at the bar and try to perfectly mimic their posture for 15 seconds without getting caught, or take a shot.",
+"Ask a stranger to whisper a secret into your ear, or take a shot.",
+"Go to a stranger, hand them a coaster, say “Keep this safe for me,” and walk away, or take a shot.",
+"Stand up and do a 15-second body roll or grinding dance by yourself, or take a shot.",
+"Give the person to your left a (PG-13) lap dance for 10 seconds, or take a shot.",
+"Pretend you are the star of a rap music video for 15 seconds, or take a shot.",
+"Do your best sexy floor crawl alongside your table for a few feet, or take a shot.",
+"Dance aggressively close to a wall like you are the main character in a club movie, or take a shot.",
+"Pretend to strip off a jacket or sweater seductively, or take a shot.",
+"Pop your booty to the beat of the current song for 10 seconds, or take a shot.",
+"Do a slow-motion, highly dramatic hair flip for the group, or take a shot.",
+"Sensually eat a piece of ice from your drink while making eye contact with someone, or take a shot.",
+"Walk across the bar aisle like a Victoria's Secret runway model, or take a shot.",
+"Stand up and shake your hips directly at the person across from you, or take a shot.",
+"Give your own chair a seductive lap dance for 10 seconds, or take a shot.",
+"Lip-sync the lyrics of the current song directly to a stranger until they notice, or take a shot.",
+"Pretend to be a pole dancer using an invisible pole for 15 seconds, or take a shot.",
+"Slowly trace your own body from your shoulders to your hips while biting your lip, or take a shot.",
+"Drop it low to the floor and bring it back up as slowly as possible, or take a shot.",
+"Turn around and give the table a quick booty shake, or take a shot.",
+"Do the salsa with an invisible partner, looking deeply into their imaginary eyes, or take a shot.",
+"Stare deeply and seductively into the camera of someone's phone while they record you dancing for 10 seconds, or take a shot.",
+"Do a dramatic “Coyote Ugly” style bar dance move (safely on the floor), or take a shot.",
+"All people who currently have a dating app installed on their phone must take a shot.",
+"All people who are wearing perfume or cologne must take a shot.",
+"All people who have ever flirted to get out of a speeding ticket or trouble must take a shot.",
+"All people who are currently single and looking must take a shot.",
+"All people who have kissed a stranger in a bar before must take a shot.",
+"All people who are wearing a push-up bra or a tight shirt tonight must take a shot.",
+"All people who have ever sent a risky text while drunk must take a shot.",
+"All people who have a “type” that is notoriously bad for them must take a shot.",
+"All people who have ever taken a shot off someone else's body must take a shot.",
+"All people who are currently looking for a rebound must take a shot.",
+"Walk past a stranger and say, “You owe me a drink,” or take a shot.",
+"Go to a stranger and say, “My friends bet me I couldn't get you to blush,” or take a shot.",
+"Tell a stranger, “I love your energy, it's very dangerous,” or take a shot.",
+"Ask a stranger, “Do you have a map? I just got lost in your eyes,” (Deliver it completely deadpan), or take a shot.",
+"Tell the bartender, “Make it strong, I have a broken heart to fix,” or take a shot.",
+"Tell a stranger, “You look like someone who breaks hearts,” or take a shot.",
+"Loudly say at your table, “I am an absolute catch and anyone would be lucky to have me!” or take a shot.",
+"Go up to a stranger and say, “If you were a triangle, you'd be acute one,” or take a shot.",
+"Tell a stranger, “I think we just had a moment,” or take a shot.",
+"Ask a stranger, “Are you a parking ticket? Because you've got fine written all over you,” or take a shot.",
+"Ask someone at the bar, “Is it hot in here, or is it just you?” or take a shot.",
+"Walk by a stranger, whisper “Call me,” and keep walking, or take a shot.",
+"Say to your group, “I need to go flirt with someone right now before I lose my mind,” or take a shot.",
+"Go to a stranger and say, “I'm writing a book on beautiful things, can I interview you?” or take a shot.",
+"Ask a stranger, “What's a nice person like you doing in a place like this?” or take a shot.",
+"Tell a stranger, “I lost my phone number, can I have yours?” or take a shot.",
+"Say to someone, “You are entirely too attractive for this bar,” or take a shot.",
+"Ask a stranger, “Do you believe in bad ideas?” or take a shot.",
+"Tell the group your most effective pickup line, loudly, or take a shot.",
+"Go to a stranger, look confused, and ask, “Wait, are we flirting right now?” or take a shot.",
+"Text your ex “I'm out and you're missing out,” or take a shot.",
+"Post a selfie on your story with the caption “Who's coming to buy me a drink?” or take a shot.",
+"Send a heart-eyes emoji (😍) to the person who most recently viewed your Snapchat or Instagram story, or take a shot.",
+"Message a friend who isn't there: “I think I just found my future spouse at this bar,” or take a shot.",
+"Reply to the last story on your Instagram feed with a fire emoji (🔥), no matter who it is, or take a shot.",],
+                hard: ["Anyone who has ever been kicked out of a bar, club, or casino, take a shot.",
+"Anyone who has currently kept a secret from someone at this table, take a shot.",
+"Anyone who has checked their hair or outfit in a reflection more than 5 times tonight, take a shot.",
+"Anyone who has ever slept with someone whose name you forgot, take a shot.",
+"Everyone who has lied to someone outside of this group about where they are tonight must take a shot.",
+"Anyone who has already spent more money than you planned to tonight, take a shot.",
+"Anyone who has a “toxic ex” that they still occasionally hook up with must take a shot.",
+"Anyone who has ever hooked up with a friend's ex or sibling, take a shot.",
+"Anyone who has a secret burner account on Instagram, TikTok, or Twitter must take a shot.",
+"If you are currently the most intoxicated person at the table, take a shot.",
+"The Puppet Master: You can force any player to do their next stranger dare exactly how you dictate, or they must take two shots.",
+"The Shield: You can redirect any single dare or voting penalty to someone else at the table, but you must take a shot to activate it.",
+"Blackout Veto: Cancel any card played by the group immediately. No discussion. You must take a shot to use this power.",
+"The Mimic Penalty: Choose a target player; for the rest of the game, whenever they are forced to take a shot, you can make them take a second one.",
+"The Truth Serum: Play this card on any player during a phone or text dare. They must complete it without blurring or hiding anything, or take two shots.",
+"Siamese Twins: Choose a partner; for the next 15 minutes, your arms must be linked whenever either of you takes a sip or a shot, or you both take a shot.",
+"Emotional Damage: Pick a partner; you must look each other in the eyes and ruthlessly roast each other's dating lives until someone laughs. The person who laughs takes a shot.",
+"Drink Buddies: Choose a player; whenever they take a shot for the rest of the night, you must take a shot with them.",
+"The Hostages: You and the person to your right cannot look at your phones for the next 4 rounds. If either of you breaks, you both take a shot.",
+"The Entourage: Choose a partner; whenever a stranger approaches either of you, the other person must act like a terrifyingly overprotective bodyguard, or you both (Maximum exposure. Show the exact proof to the table, or take a shot).",
+"Show the group your most recent “deleted” or “hidden” photos folder, or take a shot.",
+"Open your bank account app and show your current balance to the entire table, or take a shot.",
+"Show the group the last 3 things you searched on Instagram, or take a shot.",
+"Open your text messages, search the word “regret,” and show the group the results, or take a shot.",
+"Let the person to your left scroll through your photo gallery for 15 seconds uninterrupted, or take a shot.",
+"Show the group the last DM conversation you had with someone you find attractive, or take a shot.",
+"Show your screen time stats for the week, specifically for dating apps or social media, or take a shot.",
+"Show the last text exchange you had with your mom or dad without context, or take a shot.",
+"Open your email app and show the group your most recent online shopping receipts, or take a shot.",
+"Show the group the profile of the person you stalk on social media the most, or take a shot.",
+"Let the group look at your contact list and pick a random name; you must explain exactly how you know them, or take a shot.",
+"Show the group your most unhinged or dramatic draft in your Notes app, or take a shot.",
+"Open your dating app profile and let the group read your bio and prompt answers out loud, or take a shot.",
+"Show the group your last 5 Google searches without clearing them, or take a shot.",
+"Let the person to your right read the last three unread notifications on your lock screen, or take a shot.",
+"Show the group a picture of your most embarrassing phase or look from high school/college, or take a shot.",
+"Open your Snapchat or Instagram archives and show the most cringe story you posted a year ago, or take a shot.",
+"Show the group the contact information of the person who broke your heart the worst, or take a shot.",
+"Show the most recent photo taken of you when you were completely wasted, or take a shot.",
+"Let the group see who you follow most recently on Instagram, or take a shot.",
+"Bring an object from another table to this table; the last person to do it takes a shot.",
+"Get a stranger to give you a high-five; the last person to get one takes a shot.",
+"Hold up a physical lipstick or lip balm; the last person to show one takes a shot.",
+"Point to a stranger who is currently wearing a watch on their right wrist; the last person to point takes a shot.",
+"Get a stranger to look at your table and wave; the last person to get a wave takes a shot.",
+"Stand up and touch the nearest wall of the bar; the last person to touch it takes a shot.",
+"Hold up a physical receipt totaling over $50; the last person to show one takes a shot.",
+"Find someone wearing neon and point to them; the last person to point takes a shot.",
+"Turn your phone flashlight on and strobe it at the ceiling; the last person to do it takes a shot.",
+"Put your chin completely flat on the table; the last person to do it takes a shot.",
+"The last person to stick their tongue out at the person across from them takes a shot.",
+"The last person to drop to one knee takes a shot.",
+"The last person to slam their hand flat on the table takes a shot.",
+"The last person to point directly at the DJ or music speaker takes a shot.",
+"The last person to bite their own fingernail takes a shot.",
+"The last person to pull their phone out and pretend to take a video takes a shot.",
+"The last person to cover both ears with their hands takes a shot.",
+"The last person to plug one nostril takes a shot.",
+"The last person to look directly up at the ceiling takes a shot.",
+"The last person to cross their legs takes a shot.",
+"Point to the person who is the absolute messiest when drunk; the winner takes a shot.",
+"Point to the person who has the most secret, unhinged body count; the winner takes a shot.",
+"Point to the person most likely to spend their entire paycheck at the bar tonight; the winner takes a shot.",
+"Point to the person who is most likely to get into a verbal argument with a stranger tonight; the winner takes a shot.",
+"Point to the person who is the biggest lightweight; the winner takes a shot.",
+"Point to the person who lies the most on dating apps; the winner takes a shot.",
+"Point to the person most likely to start drama in the group chat tomorrow; the winner takes a shot.",
+"Point to the person who has the worst taste in partners; the winner takes a shot.",
+"Point to the person who is most likely to wake up in someone else’s clothes tomorrow; the winner takes a shot.",
+"Point to the person who would survive a zombie apocalypse the shortest because they’d be at a bar; the winner takes a shot.",
+"Walk up to a stranger, look deeply into their eyes for 10 seconds without speaking, and then walk away, or take a shot.",
+"Sit down at a random table of strangers, act like you've known them for years for 30 seconds, and then leave, or take a shot.",
+"Walk up to a stranger and ask them to give you a signature on your arm with a pen, or take a shot.",
+"Ask a stranger if you can have a sip of their drink (Warning: Do this safely or take a shot).",
+"Walk up to a stranger and ask them to do a rock-paper-scissors game for a high stake, or take a shot.",
+"Go up to someone at the bar and ask them if they will validate your existence, or take a shot.",
+"Walk over to an attractive stranger, whisper “The package is delivered,” and walk away, or take a shot.",
+"Go to a random table, interrupt them, and ask if you can read their palms to predict their future, or take a shot.",
+"Walk up to a stranger and ask them to hold your drink while you tie a shoe that is already tied, or take a shot.",
+"Approach a group of strangers and ask if you can join their friend group because your current friends are “boring,” or take a shot.",
+"Go up to a stranger and ask them for a piece of gum, but insist on feeding it to you (or take a shot).",
+"Walk up to someone and ask them to rate your personality based entirely on your shoes, or take a shot.",
+"Ask a stranger if they can smell your forehead to see if you have a fever, or take a shot.",
+"Go to a stranger and dramatically ask them to pretend to be your fiancé to get away from an imaginary stalker, or take a shot.",
+"Tap a stranger on the shoulder and ask them if they know where the nearest underground fight club is, or take a shot.",
+"Walk up to a table of strangers, point to an empty chair, ask “Is this chair taken?”, and when they say no, just take the chair back to your table, or take a shot.",
+"Go to the bar, order an extremely complicated fake drink name, and act confused when the bartender doesn't know it, or take a shot.",
+"Walk up to a stranger, hand them a dollar bill, and say “Thank you for your service,” then leave, or take a shot.",
+"Approach a stranger and ask them if they think you are an undercover cop, or take a shot.",
+"Walk into the middle of a crowded dance floor, drop to the floor, do 5 push-ups, and get back up, or take a shot.",
+"Stand up and do a full, aggressive 20-second twerk or booty shake right next to your table, or take a shot.",
+"Give the person across from you an intense, deadpan 15-second eye-stare while aggressively biting your lower lip, or take a shot.",
+"Stand up and do a dramatic contemporary interpretive dance about heartbreak for 20 seconds, or take a shot.",
+"Lie down on the bar floor flat on your back for 5 seconds, or take a shot.",
+"Stand up and do your absolute best impression of a chicken laying an egg in the middle of the room, or take a shot.",
+"Crawl like a cat on all fours around your table once, or take a shot.",
+"Act out a full breakdown or temper tantrum (silently but physically) for 15 seconds, or take a shot.",
+"Stand up and do a full 360-degree slow-motion body roll while facing a neighboring table, or take a shot.",
+"Do a dramatic runway death drop on the floor right now, or take a shot.",
+"Seductively apply a napkin to your face to wipe away sweat while making eye contact with a stranger, or take a shot.",
+"Stand up and pretend you are a professional wrestler entering the ring, complete with flexing and trash-talking the crowd, or take a shot.",
+"Do 10 jumping jacks in the middle of the aisle as fast as humanly possible, or take a shot.",
+"Stand up, spin around 5 times until you are dizzy, and try to walk in a straight line, or take a shot.",
+"Do the “stanky leg” dance move continuously for 20 seconds while looking dead-serious, or take a shot.",
+"Act like a mime trapped in a glass box right next to your table for 20 seconds, or take a shot.",
+"Put your foot up on the table and strike a pirate pose for the next full round, or take a shot.",
+"Pretend to dramatically pass out into the arms of the person sitting next to you, or take a shot.",
+"Do a highly exaggerated, terrible belly dance routine for 15 seconds, or take a shot.",
+"Stand up and mimic a generic club DJ using invisible turntables, throwing your hands up and pumping the crowd, or take a shot.",
+"Do a dramatic, high-fashion modeling pose on top of your chair (be safe) for 5 seconds, or take a shot.",
+"All people who have ever hooked up with someone they met at this exact bar must take a shot.",
+"All people who are currently wearing underwear that has a hole in it must take a shot.",
+"All people who have ever ghosted someone after a first date must take a shot.",
+"All people who have ever checked a partner's phone without their permission must take a shot.",
+"All people who have a tattoo or piercing they regret must take a shot.",
+"All people who are currently lying about their current relationship status to someone must take a shot.",
+"All people who have ever cried in public while drunk must take a shot.",
+"All people who have sent a risky photo in the last 30 days must take a shot.",
+"All people who have ever faked an emergency to leave a bad date early must take a shot.",
+"All people who have skipped work or school due to a hangover in the past year must take a shot.",
+"Walk up to a stranger and say, “My psychic told me I would meet the love of my life today... are you them?”, or take a shot.",
+"Go to a stranger and say completely seriously, “I know your secret. We need to leave now,” or take a shot.",
+"Turn to a neighboring table and loudly declare, “I am paying for everyone's tab!” (Then immediately laugh it off, or take a shot).",
+"Go up to an attractive stranger and say, “You look exactly like my future ex-spouse,” or take a shot.",
+"Whisper loudly to a stranger, “Don't look now, but the bouncer is definitely judging your outfit,” or take a shot.",
+"Look at a stranger and say, “I bet you $20 you can't make me smile,” or take a shot.",
+"Walk up to a stranger and ask, “Are you legal? Because you look criminally attractive,” or take a shot.",
+"Go to a stranger and say, “Can you tell my friends over there that I am cool? They don’t believe me,” or take a shot.",
+"Ask a stranger completely deadpan, “Do you think my forehead is too big?”, or take a shot.",
+"Walk past a group of strangers and loudly yell, “Is anyone here a licensed dolphin trainer?!”, or take a shot.",
+"Go up to someone at the bar and say, “I'm not usually a gambler, but I'm willing to bet you're single,” or take a shot.",
+"Approach a stranger and ask, “On a scale of 1 to America, how free are you tonight?”, or take a shot.",
+"Tell a stranger, “I don't know who you are, but you have major main-character energy,” or take a shot.",
+"Walk up to a table of strangers and announce, “The meeting has officially begun!”, or take a shot.",
+"Go up to someone and ask, “If I was a vegetable, would you be a sweet potato?”, or take a shot.",
+"Tell a stranger, “My friends over there think you're cute, but I think you're trouble,” or take a shot.",
+"Go to the bar and say to the bartender, “Give me whatever drink matches my aura,” or take a shot.",
+"Ask a stranger, “Do you have an inhaler? Because you took my breath away,” (Say it as dramatically as possible), or take a shot.",
+"Stand up at your table and loudly yell, “Can I get an amen?!”, or take a shot.",
+"Tap a stranger on the shoulder and ask, “Does this napkin smell like chloroform to you?” (Actually just a normal napkin, or take a shot).",
+"Text your most recent ex “I still think about you sometimes,” or take a shot.",
+"Post a completely dark, chaotic video to your social media story with the caption “Everything is going wrong tonight,” or take a shot.",
+"Open FaceTime, call the 5th person on your recent calls list, and show them the chaotic bar for 5 seconds without explaining, or take a shot.",
+"DM an absolute celebrity or massive influencer on Instagram right now saying “Let's link at this bar,” and show the group, or take a shot.",
+"Text a random number from your contact list that you haven't spoken to in over a year: “I need a favor, call me immediately,” or take a shot.",
+]
+            },
+            spicy: {
+                easy: ["Anyone who is currently wearing lace or silk, take a drink and assign a drink to the person across from you.",
+"Anyone who has hooked up with someone must take a drink to keep the secret.",
+"Anyone who has a dating app installed on their phone right now, take a drink for still looking.",
+"Everyone who is single must cheer and take a drink, while the people taken assign a drink to someone else.",
+"If you have ever sent a spicy photo to the wrong person, take a drink, ashamed.",
+"Anyone who is not wearing underwear must proudly assign two drinks to anyone they choose.",
+"Anyone who has ever faked an orgasm, take a drink and wink at the person to your left.",
+"Anyone who has kissed more than one person in the same night must take a drink and give a drink.",
+"Anyone who prefers being the big spoon, take a drink; if you prefer being the little spoon, give a drink.",
+"Anyone who has ever done the walk of shame must take a drink and assign a drink to the most innocent person here.",
+"The Safe Word: use once to completely skip any dare or truth, but you must take two drinks when you use it.",
+"The Cupid: You have the power to force any two people to hold hands for the next one round; if they let go, they both take a drink.",
+"The Master's Pass: You can force someone else to do your next dare for you, but you both have to take a drink when it happens.",
+"Spicy Immunity: You are immune from all drinking penalties for the next one round, but you must wear your shirt inside out until the immunity expires.",
+"The Exhibitionist: You can double the drinking penalty of any dare you successfully complete for the rest of the game, passing those drinks to whoever you want.",
+"Tangled Up: Choose a partner to intertwine legs with for the next three rounds; the first to untangle must take a drink.",
+"Eye Contact Challenge: Pick someone to lock eyes with, and the first person to blink or look away must take a drink and assign a drink to the winner.",
+"Mirror Mirror: Choose a player, and whenever they are told to drink for the next two rounds.",
+"The Siamese Twins: You and the person to your right must share a single cup for the next three rounds; if you spill, you both take two drinks.",
+"Whisper Challenge: Whisper a dirty word to the person on your left to act out without speaking; if the group fails to guess it, you both take a drink.",
+"What is your weirdest turn-on that you are actually willing to admit out loud? If you refuse to answer, take a drink.",
+"Who in this room do you think would be the loudest in bed? Answer or take a drink and give someone else a drink.",
+"Have you ever had a crush on a friend's partner? Confess or take a drink.",
+"What is the most scandalous place you have ever hooked up with someone? Tell the story or take a drink.",
+"Who in this group would you ideally want to be trapped on a deserted island with for romantic reasons? Name them or take a drink.",
+"Have you ever practiced kissing on an inanimate object? Admit it or take a drink.",
+"What is your absolute biggest dealbreaker in the bedroom? Share it or assign a drink to someone else, and you take a drink.",
+"Have you ever slid into someone's DMs and gotten brutally rejected? Tell the tale or take a drink.",
+"What is the most embarrassing thing you have ever searched for on incognito mode? Confess or take two drinks.",
+"Who was your worst kiss ever and why was it so bad? Describe it or take a drink.",
+"Have you ever secretly recorded a spicy video of yourself? Answer honestly or take a drink and give a drink.",
+"What is the longest you have ever gone without any physical intimacy? Tell the truth or take a drink.",
+"Have you ever been caught in the act by a family member or roommate? Share the horror story or take two drinks.",
+"What is a common kink that you completely do not understand? Explain or take a drink.",
+"Have you ever lied about your body count? Admit the lie or take two drinks.",
+"If you had to swap partners with someone in this room, who would you choose? Name them or take a drink.",
+"What is the most inappropriate thought you have had today? Confess or take a drink and assign a drink.",
+"Have you ever used a food item in the bedroom? Tell us what it was or take a drink.",
+"Who in this room has the most attractive voice? Compliment them and assign them a drink, or take a drink yourself.",
+"What is your go-to move when trying to seduce someone? Demonstrate or explain, or take two drinks.",
+"Starting with you, name a word for female anatomy. First to hesitate or repeat a word drinks.",
+"Starting with you, name a brand of condoms or lube. First to hesitate or repeat a word drinks.",
+"Starting with you, name an exotic animal you would never want watching you get intimate. First to hesitate or repeat a word drinks.",
+"Starting with you, name a profession that is commonly featured in adult films. First to hesitate or repeat a word drinks.",
+"Starting with you, name a place where people shouldn't hook up but absolutely do. First to hesitate or repeat a word drinks.",
+"Starting with you, name an item of clothing that is easily removed with one hand. First to hesitate or repeat a word drinks.",
+"Starting with you, name a popular safe word. First to hesitate or repeat a word drinks.",
+"Starting with you,  name a cocktail that sounds slightly dirty. First to hesitate or repeat a word drinks.",
+"Starting with you, name a song that is perfect for a bedroom playlist. First to hesitate or repeat a word drinks.",
+"Starting with you, name a body part that is underrated for kissing. First to hesitate or repeat a word drinks.",
+"The last person to touch their own butt must take a drink.",
+"The last person to make a kissing noise (must assign a drink to whoever they want).",
+"The last person to point at the most attractive person in the room takes a drink.",
+"The last person to moan loudly must take a drink.",
+"The last person to bite their lip sensually must take a drink and give a drink.",
+"The last person to flash a peace sign with their tongue out must take a drink.",
+"The last person to cross their legs tightly must assign a drink.",
+"The last person to wink at the player across from them must take a drink.",
+"The last person to unbutton one button or pull their collar down must take a drink.",
+"The last person to say Daddy or Mommy must take a drink.",
+"The last person to close their eyes and tilt their head back takes a drink.",
+"The last person to mimic slapping a butt must take a drink and assign a drink.",
+"The last person to touch their own thigh must take a drink.",
+"The last person to trace their jawline takes a drink.",
+"The last person to pretend to undo a bra strap must take a drink.",
+"The last person to blow a kiss to the ceiling takes a drink.",
+"The last person to run their hands through their hair must give out two drinks.",
+"The last person to lick their own finger takes two drinks.",
+"The last person to say Oh yeah in a deep voice takes a drink.",
+"The last person to stand up and shake their hips must take a drink and give a drink.",
+"Point to the person most likely to have a secret OnlyFans; the winner must take a drink and assign a drink.",
+"Point to the person most likely to sleep with their boss for a promotion; the winner takes a drink.",
+"Point to the person who definitely has the weirdest search history; the winner must take a drink.",
+"Point to the person most likely to join a mile-high club; the winner takes a drink and gives a drink.",
+"Point to the person who is the biggest flirt when they are drunk; the winner must take a drink.",
+"Point to the person most likely to fake it just to go to sleep; the winner takes a drink.",
+"Point to the person who would survive the longest in a polyamorous relationship; the winner must assign a drink.",
+"Point to the person most likely to send a risky text at 2 AM; the winner takes a drink.",
+"Point to the person who definitely owns the most adult toys; the winner must take a drink and give a drink.",
+"Point to the person most likely to get arrested for public indecency; the winner takes a drinks.",
+"Lapdance someone of your choice for 10 seconds, or take two drinks.",
+"Let the person to your left give you a hickey on your hand, or take a drink.",
+"Demonstrate your favorite kissing technique on your hand for 15 seconds, or take two drinks.",
+"Whisper something highly inappropriate into the ear of the person across from you, or take a drink and give a drink.",
+"Let the group look through your hidden photos album for 30 seconds, or take two drinks.",
+"Take off one article of clothing or take two drinks.",
+"Give the person to your right a sensual neck massage for one minute, or take a drink.",
+"Eat a snack off a clean part of someone else's body without using your hands, or take two drinks.",
+"Have someone blindfold you and feed you a mystery liquid from the table, or take two drinks.",
+"Kiss the cheek of the person you find most attractive in the room, or take a drink and give a drink.",
+"Recreate the sound you make when you stub your toe, but make it sound as spicy as possible, or take a drink.",
+"Send a peach emoji to the third person in your recent contacts, or take two drinks.",
+"Let the person across from you draw something on your thigh with a pen, or take a drink.",
+"Swap shirts with the player to your left for the rest of the game, or both of you take a drink.",
+"Let someone take a body shot off your stomach or collarbone, or you both take a drink.",
+"Demonstrate exactly how you take off a bra using the person next to you (over their clothes), or take a drink.",
+"Post a highly suggestive status on your social media for one hour, or take two drinks.",
+"Stare deeply into the eyes of the person to your right and gently stroke their face for 30 seconds without laughing, or take a drink.",
+"Crawl across the floor to fetch a drink for another player, or take a drink.",
+"Do your best pole dance routine on an imaginary pole for 15 seconds, or take a drink and assign a drink.",
+"All people who prefer being tied up over tying someone else up must take a drink.",
+"All people who have ever skinny-dipped must stand up, toast, and take a drink.",
+"All people who have watched adult content in the past 48 hours must take two drinks to wash away the guilt.",
+"All people who prefer morning action over late-night action must take a drink and assign a drink.",
+"All people who have dated someone older than them by at least five years take a drink.",
+"All people who have ever ghosted someone after dating must take a drink.",
+"All people who currently have lingerie or nice underwear sitting in their closet must give out a drink.",
+"All people who have kissed someone of the same gender must take a drink and give a drink.",
+"All people who think they are good in bed must prove their confidence by taking a drink.",
+"All people who have a designated spicy playlist must take a drink.",
+"Describe your favorite physical feature on the person to your left in excruciating detail, or take a drink.",
+"Read the last three spicy texts you sent or received out loud, or take a drink.",
+"Explain what your stripper name would be and why, or take a drink and give a drink.",
+"Give a highly detailed review of your most recent date out of ten stars, or take two drinks.",
+"Tell the group what your safe word is, or take a drink if you don't have one.",
+"Rank the top three people in this room you would want to be stuck in an elevator with, or take two drinks.",
+"Describe the plot of the last adult video you watched as if you were reading a children's book, or take two drinks.",
+"Confess an impure thought you have had about a coworker or classmate, or take a drink.",
+"Talk dirty to an imaginary person in the center of the circle for 15 seconds, or take a drink.",
+"Explain exactly how you like to be touched using only metaphors about food, or take a drink and assign a drink.",
+"Show your last search history to the group, or take a drink and assign a drink to the person who asked to see it.",
+"Show the group the last photo you saved to your camera roll, or take two drinks.",
+"Message your ex right now saying I was just thinking about you, or take a drink and give a drink.",
+"Show the group the most scandalous text thread in your messages, or take a drink.",
+"Message your best friend asking for advice on a fake STD scare, or take a drink.",
+"",],
+                medium: ["Anyone who has ever had a sneaky link you still haven't told your best friend about, take a shot.",
+"Anyone who is currently going commando must assign a shot to the person they think is most likely to join them.",
+"Anyone who has ever used toys with a partner, take a shot and wink at the person across from you.",
+"Everyone who has ever hooked up in a public place (parks, cars, alleys) take a shot.",
+"Anyone who has “body count” is higher than the number of people in this room, give a shot.",
+"Anyone who has ever been caught or almost caught mid-hookup, take a shot to shake off the trauma.",
+"Anyone who has ever been the “other person” in a relationship (knowingly or unknowingly), take a shot.",
+"Anyone who has a dedicated “NSFW” album or folder on their phone must take a shot.",
+"Anyone who prefers rough over gentle, take a shot. If you prefer gentle over rough, give someone a shot.",
+"Anyone who has hooked up with an ex after officially breaking up must take a shot.",
+"The Tease. You can slowly trace the jawline of anyone in the room; if they blush or smile, they take a shot. If they keep a straight face, you take a shot.",
+"Shot Caller. At any point, you can interrupt a dare by shouting “Cut!” and forcing the person doing the dare to take a shot instead. (one time only)",
+"The Voyeur. For the next two rounds, you get to choose who completes any given dare, but you must take a shot for the privilege.",
+"Spicy Reversal. If someone assigns you a shot, you can play it to bounce the shot right back to them. (one time only)",
+"Blindfold Master: You can blindfold one player for the next one round; if they peek, they take a shot.",
+"Lap Warmer. Choose a player to sit on your lap for the next one round. The first one of you to break physical contact takes a shot.",
+"The Tether. You and the person to your left must hold hands for the next three rounds. If anyone lets go, you both take a shot.",
+"Truth or Drink Duel. You and a partner of your choice must ask each other one highly personal question. If either of you refuses to answer, you both take a shot.",
+"Synchronized Sips: Pick a partner. Every time you are told to drink for one round, they must take a shot with you.",
+"Silent Tension: You and the person across from you cannot speak to each other for one round. The first one to break the silence takes a shot.",
+"Have you ever secretly imagined someone else while being intimate with a partner? Confess or take a shot.",
+"What is the most unconventional place in your own house where you've done the deed? Tell us or take a shot.",
+"Who is the last person in this room you thought about in a slightly inappropriate way? Name names or take a shot.",
+"Have you ever bought a piece of lingerie or underwear specifically to impress someone, but never ended up showing them? Admit it or take a shot.",
+"What is the dirtiest text you've received this week? Read it or summarize it, or take a shot.",
+"Have you ever had a one-night stand and completely forgotten their name the next morning? Confess or take a shot.",
+"What is a fantasy you've always wanted to try but are too embarrassed to ask for? Share it or take a shot.",
+"Have you ever lied about finishing just so you could stop? Admit it or take a shot.",
+"Who in this room do you think has the highest freak number? Point them out and assign a shot, or take a shot yourself.",
+"Have you ever sent a risky text and immediately put your phone on airplane mode out of panic? Tell the story or take a shot.",
+"What is the longest you've ever hooked up with someone in a single session? Give the timeframe or take a shot.",
+"Have you ever quietly judged someone for being bad in bed but pretended it was great? Confess or take a shot.",
+"Have you ever hooked up with someone primarily because you were bored? Admit it or take a shot.",
+"What's the most money you've ever spent on adult toys, lingerie, or spicy content? Name the price or take a shot.",
+"Have you ever had a “friends with benefits” situation that ended disastrously? Spill the tea or take a shot.",
+"What is the absolute weirdest thing someone has said to you while dirty talking? Quote it or take a shot.",
+"If you could have a free pass to hook up with one celebrity, who would it be? Answer or take a shot.",
+"Have you ever accidentally liked an ex's old photo while creeping on them late at night? Confess or take a shot.",
+"What's the closest you've ever come to getting caught doing something spicy? Tell the story or take a shot.",
+"Have you ever secretly crushed on a teacher, boss, or person in power? Admit it or take a shot.",
+"Starting with you, name a Movie which has a sex scene on it. First to hesitate or repeat a word drink.",
+"Starting with you, name a common item you can use as a blindfold. First to hesitate or repeat a word drink.",
+"Starting with you, name an app where people secretly hook up (not traditional dating apps). First to hesitate or repeat a word drink.",
+"Starting with you, name a specific type of underwear. First to hesitate or repeat a word drink.",
+"Starting with you, name a reason you might use a safe word. First to hesitate or repeat a word drink.",
+"Starting with you, name a body part that is strictly PG but surprisingly sensitive. First to hesitate or repeat a word drink.",
+"Starting with you, name an excuse you've used to leave immediately after a hookup. First to hesitate or repeat a word drink.",
+"Starting with you, name an edible item commonly used in the bedroom. First to hesitate or repeat a word drink.",
+"Starting with you, name a word that instantly ruins the mood if spoken in bed; loser takes a shot.",
+"Starting with you, name a famous celebrity known for being a sex symbol. First to hesitate or repeat a word drink.",
+"The last person to pretend to lick their lips sensually takes a shot.",
+"The last person to grab their own chest (lightly) takes a shot.",
+"The last person to say “Harder” takes a shot.",
+"The last person to unbutton or pull at their pants zipper takes a shot.",
+"The last person to stroke the arm of the person next to them takes a shot.",
+"The last person to fake a shiver down their spine takes a shot.",
+"The last person to lock eyes with the ceiling and sigh takes a shot.",
+"The last person to pretend to spank themselves takes a shot.",
+"The last person to whisper “quiet” takes a shot.",
+"The last person to bite their own finger takes a shot.",
+"The last person to pull their own hair gently takes a shot.",
+"The last person to point to the person they'd most want to see naked takes a shot.",
+"The last person to rub their own neck takes a shot.",
+"The last person to softly pant like they are out of breath takes a shot.",
+"The last person to pretend to handcuff their own wrists takes a shot.",
+"The last person to wink with both eyes takes a shot.",
+"The last person to trace the rim of their cup takes a shot.",
+"The last person to cross their arms protectively takes a shot.",
+"The last person to stick their chest out takes a shot.",
+"The last person to slap the floor (or table) takes a shot.",
+"Point to the person most likely to suggest a threesome; the winner takes a shot.",
+"Point to the person who definitely has a secret kink they aren't telling us; the winner takes a shot.",
+"Point to the person most likely to date someone strictly for their money; the winner takes a shot.",
+"Point to the person who would have the most wild bachelorette/bachelor party; the winner takes a shot.",
+"Point to the person most likely to hook up with someone on the first date; the winner takes a shot.",
+"Point to the person most likely to send a nude without a warning; the winner takes a shot.",
+"Point to the person who looks innocent but is definitely a menace behind closed doors; the winner takes a shot.",
+"Point to the person most likely to cry after doing the deed; the winner takes a shot.",
+"Point to the person who definitely has the best playlist for getting down; the winner takes a shot.",
+"Point to the person most likely to accidentally broadcast their hookup on Instagram Live; the winner takes a shot.",
+"Let the person to your right sit on your lap for the next round, or take a shot.",
+"Whisper your biggest turn-on into the ear of the person across from you, or take a shot.",
+"Give a 15-second neck massage to the player of your choice using lotion or oil (if available), or take a shot.",
+"Let the group blindfold you while someone (they choose) kisses you on the cheek. Guess who it was, or take a shot.",
+"Demonstrate your “bedroom eyes” to the group for 10 straight seconds without laughing, or take a shot.",
+"Pick a player to gently trace the outline of your ear with their finger, or take a shot.",
+"Give a genuine, flirty compliment to the person you find most intimidating in the room, or take a shot.",
+"Let someone tuck a piece of ice down your shirt or dress, or take a shot.",
+"Nibble on a piece of fruit or a snack as seductively as possible while making eye contact with someone, or take a shot.",
+"Allow the person on your left to unbutton or unzip one safe item of clothing (like a jacket or top button), or take a shot.",
+"Smell the neck of the person next to you and describe what they smell like out loud, or take a shot.",
+"Walk across the room like you are on a high-fashion lingerie runway, or take a shot.",
+"Let someone of the group's choosing gently bite your shoulder, or take a shot.",
+"Describe in detail how you would undress the person across from you, or take a shot.",
+"Swap one piece of clothing with a player of your choice, or take a shot.",
+"Feed a sip of water or a chaser to the person on your right without using your hands, or take a shot.",
+"Leave a slightly flirty voicenote for a random contact in your phone chosen by the group, or take a shot.",
+"Let the person to your left slowly run their fingers through your hair for 30 seconds, or take a shot.",
+"Make a 10-second ASMR sound using just your mouth, or take a shot.",
+"Act out your favorite sleeping position using a pillow or cushion, or take a shot.",
+"All people who have ever filmed themselves during intimacy must take a shot.",
+"All people who are wearing black underwear right now take a shot.",
+"All people who prefer having the lights completely off take a shot.",
+"All people who have a designated toy drawer or box at home take a shot.",
+"All people who have sent a risky text within the last 24 hours must take a shot.",
+"All people who have ever used handcuffs or restraints must take a shot.",
+"All people who have lied to get out of a bad date take a shot.",
+"All people who have kissed a coworker take a shot.",
+"All people who enjoy dirty talk must take a shot.",
+"All people who have ever “double texted” when left on read must take a shot.",
+"Explain the difference between making love and hooking up according to you, or take a shot.",
+"Describe the hottest outfit you own that you only wear for special company, or take a shot.",
+"Tell the group the most embarrassing noise you've ever made in bed, or take a shot.",
+"Describe exactly what kind of physical touch makes you melt instantly, or take a shot.",
+"Admit the most shallow reason you've ever stopped seeing someone, or take a shot.",
+"Explain your personal rules for a one-night stand, or take a shot.",
+"Tell the group what age you had your sexual awakening and what sparked it, or take a shot.",
+"Describe a time you tried to be sexy but ended up being incredibly awkward, or take a shot.",
+"Share the most ridiculous place you've ever hidden a hickey, or take a shot.",
+"Tell the group what your “type” is, but be brutally honest about the red flags you ignore, or take a shot.",
+"Show the group the last person you looked up on Instagram, or take a shot.",
+"Show your screen time stats for your most-used dating app, or take a shot.",
+"Message your last hookup with the 🍆 or 🍑 emoji with no context, or take a shot.",
+"Show the group your blocked list and explain why one of them is there, or take a shot.",
+"Send “We need to talk” to someone you are casually seeing right now, or take a shot.",],
+                hard: ["Anyone who has ever been with more than one person at the same time, take a shot.",
+"Anyone who is currently feeling “spicy” enough to do anything tonight, assign a shot to the person you find most attractive.",
+"Anyone who has ever sent a nude/explicit photo that ended up being seen by others, take a shot.",
+"Anyone who has ever hooked up with a friend’s ex behind their back, take a shot.",
+"Anyone who has ever slept with someone purely to make an ex jealous, take a shot.",
+"Anyone who hasn’t been intimate in over a month must take a shot.",
+"Anyone who has ever used a prop or toy on someone else in this room (or would be down to), take a shot.",
+"Anyone who has ever had a secret hookup in a place of worship or a library, take a shot.",
+"Anyone who is secretly attracted to the person sitting directly opposite you, take a shot and wink at them.",
+"Anyone who has ever done the deed in a moving vehicle, take a shot.",
+"The Truth Serum: You can force any player to answer any question you ask truthfully, or they take two shots.",
+"The King/Queen of Spades: You choose one person to be your “servant” for the next round; they must obey all your non-dangerous dares or drink.",
+"The Strip Pass: Force any player to remove one item of clothing (accessory or otherwise). If they refuse, they take a shot.",
+"The Swap: You can swap seats with anyone in the room for the rest of the game to get closer to your target.",
+"The Dominator: For one round, you can assign the shots from any fail to whoever you want, including yourself if you're feeling generous.",
+"The Lip Lock: You and the person to your left must kiss on the lips for 10 seconds. If either of you pulls away early, you both take a shot.",
+"The Body Bridge: You must perform a “naughty” act (like a lap dance or a massage) on your partner for 30 seconds; if the group thinks you aren't trying hard enough, you both drink.",
+"Breathless: You and your partner must keep touching your foreheads for 30 seconds. If you break contact, you both take a shot.",
+"The Shared Drink: You and your partner must finish a shot together, mouth-to-mouth, or you both take two shots.",
+"Leggy Love: You must wrap your legs around the waist of the person next to you for the next two rounds. If you drop, you both take a shot.",
+"What is the most depraved thing you have ever done in the bedroom? Confess or take a shot.",
+"Would you ever consider a threesome with two other people in this room? Who would you pick or take a shot?",
+"What is the one thing you would never tell a partner, even if you were married to them? Tell us or take a shot.",
+"Have you ever cheated on a partner? Admit it or take a shot.",
+"What is your “freak number” on a scale of 1-10? If you say anything below 8, you must prove it with a dare or take a shot.",
+"Who in this room would you most like to see naked right now? Name them or take a shot.",
+"Have you ever gotten off while thinking about someone in this room? Confess or take a shot.",
+"What is the most painful thing you have ever enjoyed during sex? Describe it or take a shot.",
+"Have you ever paid for spicy content? Admit it or take a shot.",
+"What is your absolute darkest sexual fantasy that you have never told anyone? Tell the group or take a shot.",
+"If you could have a one-time encounter with anyone in this room, who would it be and what would you do? Answer or take a shot.",
+"Have you ever recorded someone without their consent? Admit it or take a shot.",
+"What is the most embarrassing physical sound you have ever made during sex? Describe it or take a shot.",
+"Have you ever had a crush on a family member or a very close friend of your parents? Confess or take a shot.",
+"What is the kinkiest thing you have ever requested a partner to do? Share it or take a shot.",
+"Have you ever been so turned on that you couldn't control yourself in public? Tell the story or take a shot.",
+"What is the most “illegal” thing you have ever done in a sexual context? Tell us or take a shot.",
+"If you had to pick one person in this room to tie you up, who would it be? Answer or take a shot.",
+"Have you ever been rejected and then tried to hook up with the person anyway? Confess or take a shot.",
+"Do you prefer being in control or being controlled? Give an example of how you show this or take a shot.",
+"Starting with you, name a specific sexual act. First to hesitate or repeat a word drink.",
+"Starting with you, name a place on the body that you find most sensitive. First to hesitate or repeat a word drink.",
+"Starting with you, name an item you use to restrain someone. First to hesitate or repeat a word drink.",
+"Starting with you, name a type of adult toy. First to hesitate or repeat a word drink.",
+"Starting with you, name a reason you would fake an interest in someone. First to hesitate or repeat a word drink.",
+"Starting with you, name a way to “tease” someone. First to hesitate or repeat a word drink.",
+"Starting with you, name a position you have never tried but desperately want to. First to hesitate or repeat a word drink.",
+"Starting with you, name a movie that turned you on. First to hesitate or repeat a word drink.",
+"Starting with you, name the person in this room who you think is the best kisser. First to hesitate or repeat a word drink.",
+"Starting with you, name a sound that turns you on. First to hesitate or repeat a word drink.",
+"Last person to kiss the person to their right takes a shot.",
+"Last person to reveal their strap/bra/underwear takes a shot.",
+"Last person to moaning loudly takes a shot.",
+"Last person to straddle their chair takes a shot.",
+"Last person to rub their own nipples takes a shot.",
+"Last person to kiss their own reflection in a phone screen takes a shot.",
+"Last person to whisper something dirty to the player on their left takes a shot.",
+"Last person to show their “most recent photo” takes a shot.",
+"Last person to bite their lip takes a shot.",
+"Last person to take off their shoes/socks takes a shot.",
+"Last person to stand up and shake their butt takes a shot.",
+"Last person to lay on the floor takes a shot.",
+"Last person to touch their own intimate area over their clothes takes a shot.",
+"Last person to make eye contact with the person across from them takes a shot.",
+"Last person to say the word “sex” takes a shot.",
+"Last person to lick their own finger takes a shot.",
+"Last person to arch their back takes a shot.",
+"Last person to trace their neck with their finger takes a shot.",
+"Last person to breathe heavily into the mic/air takes a shot.",
+"Last person to propose a dare to the group takes a shot.",
+"Point to the person most likely to have a secret sex dungeon; they take a shot.",
+"Point to the person who is definitely the most kinky; they take a shot.",
+"Point to the person who has the most “experience”; they take a shot.",
+"Point to the person most likely to hook up with someone in this room tonight; they take a shot.",
+"Point to the person you’d most like to kiss on the lips; they take a shot.",
+"Point to the person most likely to sleep with a stranger; they take a shot.",
+"Point to the person who would be the best “bottom”; they take a shot.",
+"Point to the person who is the biggest “tease”; they take a shot.",
+"Point to the person you think is the most “prude” (they must take a shot).",
+"Point to the person most likely to get caught in a scandal; they take a shot.",
+"French kiss the person to your left for 15 seconds, or take a shot.",
+"Let someone sit on your lap for two rounds while you keep your hands on their waist, or take a shot.",
+"Show the group your most explicit chat conversation, or take a shot.",
+"Give a massage to the person of your choice while they are lying on the floor, or take a shot.",
+"Take off your top for the rest of the game, or take a shot.",
+"Perform a 30-second striptease for the group, or take a shot.",
+"Let the person to your right kiss your neck for 20 seconds, or take a shot.",
+"Eat a piece of food off someone else's body, or take a shot.",
+"Send a “dirty” text to your last contact, or take a shot.",
+"Allow someone to blindfold you and feed you something for 30 seconds, or take a shot.",
+"Whisper a fantasy to the person sitting next to you and have them repeat it to the group, or take a shot.",
+"Sit in the lap of the person you find most attractive for one full round, or take a shot.",
+"Let someone trace your entire body with their finger, or take a shot.",
+"Swap underwear with the person to your right (in another room), or take a shot.",
+"Take a body shot off the person next to you, or take a shot.",
+"Give a hickey to the person of your choice (with consent), or take a shot.",
+"Act out how you would have sex with someone in the room, or take a shot.",
+"Put your hand down the pants of the person to your left for 10 seconds, or take a shot.",
+"Kiss every person in the room on the cheek, or take a shot.",
+"Choose someone to kiss you anywhere they want (above the waist), or take a shot.",
+"All people who have ever had a threesome take a shot.",
+"All people who have ever been with someone of the same sex take a shot.",
+"All people who are not wearing underwear take a shot.",
+"All people who have ever sent a nude in the last week take a shot.",
+"All people who have cheated take a shot.",
+"All people who have been handcuffed take a shot.",
+"All people who like being dominated take a shot.",
+"All people who have had sex in a public place take a shot.",
+"All people who have watched adult videos today take a shot.",
+"All people who have ever “toyed” with a partner take a shot.",
+"Describe your “first time” in embarrassing detail, or take a shot.",
+"Tell us the name of the person you most regret sleeping with, or take a shot.",
+"Admit if you have ever stalked someone on social media to see their photos, or take a shot.",
+"Tell us if you are currently turned on, or take a shot.",
+"Describe the last time you masturbated, or take a shot.",
+"Tell the group your “safe word” and then explain why you chose it, or take a shot.",
+"Explain what your “signature move” is in bed, or take a shot.",
+"Tell us if you prefer your partner to be quiet or loud, or take a shot.",
+"Describe your perfect sexual encounter from start to finish, or take a shot.",
+"Confess the most “taboo” thing you want to try, or take a shot.",
+"Show your entire search history to the person to your right, or take a shot.",
+"Show your “hidden” photo folder, or take a shot.",
+"Send a photo of yourself in your underwear to your most recent contact, or take a shot.",
+"Message your crush saying “I want you,” or take a shot.",
+"Show the group the last person you had a sexual encounter with (via messages or photos), or take a shot.",]
+            },
+            deep: {
+                easy: ["What’s one thing that always makes you smile? Answer or Drink",
+        "What does a perfect day look like for you? Answer or Drink",
+        "Who is someone you admire and why? Answer or Drink",
+        "What’s your biggest dream right now? Answer or Drink",
+        "What’s one lesson life has taught you? Answer or Drink",
+        "What’s your favorite childhood memory? Answer or Drink",
+        "Where do you feel most at peace? Answer or Drink",
+        "What’s something you’re grateful for today? Answer or Drink",
+        "What does love mean to you? Answer or Drink",
+        "What’s one goal you want to achieve in the next year? Answer or Drink",
+        "What’s your biggest fear in life? Answer or Drink",
+        "Who has impacted your life the most? Answer or Drink",
+        "What’s something you’ve always wanted to try? Answer or Drink",
+        "What makes a friendship truly strong? Answer or Drink",
+        "If money wasn’t an issue, how would you spend your time? Answer or Drink",
+        "What’s your love language? Answer or Drink",
+        "What’s one thing you wish you could change about the world? Answer or Drink",
+        "What’s the best advice you’ve ever received? Answer or Drink",
+        "What does happiness mean to you? Answer or Drink",
+        "What’s a book/movie that changed how you see life? Answer or Drink",
+        "Who would you call if you needed help at 3 AM? Answer or Drink",
+        "What’s something you’re proud of? Answer or Drink",
+        "What’s your definition of success? Answer or Drink",
+        "What’s one habit you want to build? Answer or Drink",
+        "What’s the most important thing in a relationship? Answer or Drink",
+        "Where do you see yourself in 5 years? Answer or Drink",
+        "What’s a small thing that brings you joy? Answer or Drink",
+        "What’s one thing you’ve learned about yourself recently? Answer or Drink",
+        "What does family mean to you? Answer or Drink",
+        "What’s your biggest regret so far? Answer or Drink",
+        "What superpower would you want and why? Answer or Drink",
+        "What’s something that always inspires you? Answer or Drink",
+        "How do you handle stress? Answer or Drink",
+        "What’s your favorite way to show love? Answer or Drink",
+        "What’s one thing you want to learn this year? Answer or Drink",
+        "Who makes you feel most understood? Answer or Drink",
+        "What’s a turning point in your life? Answer or Drink",
+        "What does “home” feel like to you? Answer or Drink",
+        "What’s something you’re looking forward to? Answer or Drink",
+        "How has your perspective on life changed? Answer or Drink",
+        "What’s the kindest thing someone has done for you? Answer or Drink",
+        "What’s your biggest passion? Answer or Drink",
+        "What do you value most in friendships? Answer or Drink",
+        "What’s one thing you would tell your younger self? Answer or Drink",
+        "What makes you feel loved? Answer or Drink",
+        "What’s your favorite memory with friends? Answer or Drink",
+        "What’s something beautiful you’ve seen recently? Answer or Drink",
+        "How do you define a good life? Answer or Drink",
+        "What’s one goal for your relationships? Answer or Drink",
+        "What song describes your life right now? Answer or Drink",
+        "What’s the best compliment you’ve received? Answer or Drink",
+        "What’s something you’re curious about? Answer or Drink",
+        "Who do you want to become? Answer or Drink",
+        "What’s your favorite way to spend a weekend? Answer or Drink",
+        "What does forgiveness mean to you? Answer or Drink",
+        "What’s one thing that motivates you? Answer or Drink",
+        "What’s a tradition you love? Answer or Drink",
+        "How do you show appreciation to people? Answer or Drink",
+        "What’s something that surprised you about life? Answer or Drink",
+        "What’s your go-to comfort activity? Answer or Drink",
+        "What’s one thing you’re excited to experience? Answer or Drink",
+        "Who was your first crush? Answer or Drink",
+        "What’s a value you live by? Answer or Drink",
+        "What’s the most fun you’ve had recently? Answer or Drink",
+        "What does loyalty mean to you? Answer or Drink",
+        "What’s something you want more of in life? Answer or Drink",
+        "What’s your favorite love story? Answer or Drink",
+        "How do you recharge? Answer or Drink",
+        "What’s one thing you’re good at? Answer or Drink",
+        "What’s a dream destination and why? Answer or Drink",
+        "What makes you laugh the hardest? Answer or Drink",
+        "What’s one lesson from a past relationship? Answer or Drink",
+        "What are you most thankful for in life? Answer or Drink",
+        "What’s something you believe in strongly? Answer or Drink",
+        "Who inspires you to be better? Answer or Drink",
+        "What’s your idea of romance? Answer or Drink",
+        "What’s a skill you want to master? Answer or Drink",
+        "What’s the best trip you’ve ever taken? Answer or Drink",
+        "What does trust mean to you? Answer or Drink",
+        "What’s one thing that changed your life? Answer or Drink",
+        "What’s your favorite quote about life? Answer or Drink",
+        "How do you want to be remembered? Answer or Drink",
+        "What’s something that makes you emotional? Answer or Drink",
+        "What’s your biggest strength? Answer or Drink",
+        "What’s one thing you want to say to someone? Answer or Drink",
+        "What does freedom mean to you? Answer or Drink",
+        "What’s a habit you’re proud of breaking? Answer or Drink",
+        "Who is your role model? Answer or Drink",
+        "What’s something you’ve overcome? Answer or Drink",
+        "What’s your love language in friendships? Answer or Drink",
+        "What’s one thing that always calms you? Answer or Drink",
+        "What’s your definition of beauty? Answer or Drink",
+        "What’s a goal for your personal growth? Answer or Drink",
+        "What makes a relationship last? Answer or Drink",
+        "What’s the best gift you’ve ever received? Answer or Drink",
+        "What’s something you want to create? Answer or Drink",
+        "How do you practice self-care? Answer or Drink",
+        "What’s one thing you’ve learned from failure? Answer or Drink",
+        "What’s your vision for the future? Answer or Drink",
+        "What are you most excited about in life right now? Answer or Drink"],
+                medium: ["What part of yourself are you currently trying to unlearn?",
+"How do you recognize when you are self-sabotaging?",
+"What is a harsh truth you have had to accept about yourself?",
+"When was the last time you felt truly out of your comfort zone, and how did it change you?",
+"What emotion are you most afraid to feel?",
+"How has your definition of success changed over the last five years?",
+"What is a personal boundary you struggle to set with others?",
+"What do you default to as a coping mechanism when you are stressed?",
+"What is a core belief you hold now that you completely disagreed with a few years ago?",
+"How do you currently measure your own self-worth?",
+"What is the hardest boundary for you to draw with friends or family?",
+"How do you know when you are outgrowing a friendship?",
+"What do you think people misunderstand about you when they first meet you?",
+"Have you ever stayed in a friendship out of guilt or history rather than genuine connection?",
+"What is the most painful lesson you have learned about trust?",
+"How do you handle it when a friend's choices deeply conflict with your personal values?",
+"What role do you typically play in your friend group, and does it ever exhaust you?",
+"When was a time you realized you were the one in the wrong, and what did you do about it?",
+"How much of your true self do you actually share with the people closest to you?",
+"What is a conversation you need to have with someone but have been avoiding?",
+"Do you find it harder to ask for help or to accept it when it is offered?",
+"What does feeling “unsupported” look and feel like to you?",
+"How has your relationship with your family shaped how you treat your friends?",
+"What is a personality trait you admire in others but struggle to cultivate in yourself?",
+"How do you balance being there for someone while protecting your own mental peace?",
+"When was the last time someone truly surprised you in a meaningful way?",
+"How do you rebuild trust once it has been broken, or is it impossible for you?",
+"What do you think is the primary reason most friendships fade away over time?",
+"Is there someone in your life you feel completely, unconditionally accepted by?",
+"What behavior makes you feel instantly disconnected from someone in a conversation?",
+"What is a vulnerability you are afraid to show a romantic partner?",
+"Do you think you have ever confused infatuation or attachment with real love?",
+"How has your idea of a “perfect partner” evolved since you were a teenager?",
+"What is a toxic or unfair trait you have accidentally brought into a relationship?",
+"How much personal space do you need in a relationship, and do you struggle to ask for it?",
+"What is the most difficult conversation you think a couple can ever have?",
+"Do you believe that love is a choice you make every day, or an involuntary feeling?",
+"How do you handle the quiet fear of being abandoned or rejected by someone you love?",
+"What does emotional intimacy look like to you in daily practice?",
+"Have you ever compromised too much of your identity for the sake of love?",
+"How do you figure out if a disagreement is worth fighting over or better to let go?",
+"What is a recurring argument or miscommunication you tend to have in relationships?",
+"How does your past trauma or attachment style affect how you give and receive love?",
+"What specific actions make you feel taken for granted by a partner?",
+"Is there a part of yourself you feel you have to hide in order to be lovable?",
+"How do you navigate a relationship when you realize you and your partner are growing in different directions?",
+"What is the biggest sacrifice you would realistically be willing to make for love?",
+"Do you think true, fierce independence can coexist with a deep romantic partnership?",
+"How do you heal together when you have both hurt each other?",
+"What is the difference between settling and just being realistic about love?",
+"How do you ensure you do not lose your own goals and identity in a long-term relationship?",
+"What expectation of love did movies or media give you that turned out to be completely false?",
+"How do you handle deep financial differences or career stress with a partner?",
+"When do you think holding onto a relationship becomes more damaging than letting it go?",
+"How do you define emotional cheating compared to physical cheating?",
+"What makes a romantic relationship actually feel like an equal partnership to you?",
+"Do you think someone can be the right person but simply at the wrong maturity level?",
+"How important is it that your partner completely understands your deepest past traumas?",
+"What is a boundary in dating that you wish you had set much earlier in your life?",
+"What is the most courageous or terrifying thing you have ever done for the sake of love?",
+"What is a specific insecurity a past relationship left you with?",
+"Have you ever romanticized a past relationship only to later realize it was not actually that good?",
+"What is the most mature closure you have ever experienced with an ex?",
+"What part of the healing process after a breakup surprised you the most?",
+"Have you ever looked back and realized you were the villain in a past relationship?",
+"What is a standard you raised strictly because of a bad experience with a former partner?",
+"How long did it take you to forgive someone who never gave you an apology?",
+"What is something you lost about yourself in a past relationship that you are actively trying to get back?",
+"Do you think the way someone treats you during a breakup reveals their true character?",
+"How has your absolute worst heartbreak ultimately protected you?",
+"What is a glaring red flag you ignored in a past relationship because you were too in love?",
+"Have you ever loved someone who fundamentally did not respect you?",
+"What is a burning question you still wish you could ask a past partner?",
+"Do you think holding onto anger toward an ex hurts them, or does it only hurt you?",
+"How did your past loves shape the way you handle conflict and communication today?",
+"Looking back, can you spot the exact moment a past relationship truly ended in your heart?",
+"Have you ever used a new relationship or fling to distract yourself from healing from an old one?",
+"What is the most beautiful thing a past relationship brought into your life, even though it ended?",
+"What do you think your exes would say is your biggest flaw as a partner?",
+"How do you know when reminiscing about the past turns into being stuck in it?",
+"If you lost everything you owned today, what would give your life meaning tomorrow?",
+"Do you think a person's purpose is tied to their career, or something entirely different?",
+"What is a passion or dream you gave up on, and do you regret letting it go?",
+"How do you handle the heavy pressure of figuring out what you are supposed to do with your life?",
+"What is the difference between living a happy life and living a meaningful life?",
+"What legacy do you want to leave behind, not for the world, but for the people who know you best?",
+"Do you feel you are currently just existing, or are you truly living?",
+"What is a heavy responsibility or burden you carry that ironically gives your life deeper meaning?",
+"Have you ever felt a strong calling to do something that terrified you?",
+"How do you find meaning in the painful, boring, or mundane parts of everyday life?",
+"Do you think humans are inherently selfish, or naturally collaborative and good?",
+"Under what circumstances would you do something generally considered “wrong” for the right reasons?",
+"How much of our behavior do you think is dictated by society versus our own free will?",
+"Do you believe that complete, unconditional selflessness actually exists?",
+"What is a harsh reality of human nature that you find incredibly difficult to accept?",
+"Should we judge people by their deep intentions, or strictly by the outcome of their actions?",
+"Do you think it is possible to be a completely moral and ethical person in today's modern society?",
+"When is vengeance or revenge actually justified, if ever?",
+"How do you think anonymity (like on the internet) changes the way people treat each other?",
+"Do you believe ignorance is truly bliss, or is the truth always better, even if it causes pain?",
+"Does the immense, unending size of the universe make you feel comforted or terrified?",
+"Do you think human consciousness is just biological brain chemistry, or something more spiritual?",
+"If you found out for a fact there is no afterlife, would that change how you live your life right now?",
+"Do you think science and spirituality can ever fully align, or will they always conflict?",
+"Have you ever experienced a coincidence or moment of synchronicity that felt too specific to be random?",
+"Why do you think humans have such a desperate need to find meaning in the unknown?",
+"If you could have one absolute truth of the universe revealed to you, what exactly would you ask?",
+"Do you think we are meant to understand the universe, or are we just meant to experience it?",
+"What is a philosophical theory about reality (like the multiverse or simulation theory) that messes with your head?",
+"Do you find more comfort in the idea of chaos (everything is random) or fate (everything is meant to be)?",
+"What is a childhood emotional survival mechanism you developed that you no longer need today?",
+"Which of your parents' traits do you see in yourself that you actively try to suppress or change?",
+"What is an apology you never received as a child but really needed to hear?",
+"How did your family handle emotional expression (anger, sadness, joy) when you were growing up, and how did it affect you?",
+"What is a defining moment from your youth that abruptly ended your childhood innocence?",
+"How did your childhood environment shape your current anxieties around money and security?",
+"What is an expectation placed on you as a kid that you still carry the weight of today?",
+"Do you feel like you had to grow up too fast, or were you sheltered for too long?",
+"What is the most emotionally difficult part about seeing your parents age?",
+"In what specific ways are you still trying to make your inner child proud?",],
+                hard: ["What lie do you tell yourself so often that you have actually started to believe it?",
+"What is the ugliest, most toxic part of your personality that you hide from the rest of the world?",
+"If you were completely honest, what is the core reason you have not achieved your biggest dream yet?",
+"What is a pain or trauma you are holding onto because you feel it is the only thing keeping you connected to a certain person or past identity?",
+"Do you actually want to heal from your deepest issues, or has your brokenness become too central to your personality?",
+"What is the most shameful thing you have ever done, and have you truly forgiven yourself for it?",
+"How much of your current life is built on a foundation of avoiding your deepest fear rather than pursuing your actual desires?",
+"What is a painful truth about yourself that you are actively ignoring right now?",
+"If your inner monologue were broadcast on a loudspeaker for a day, what would your friends really think of you?",
+"Are you truly a good person, or are you just good at following the rules of society to avoid judgment and punishment?",
+"Who in your life do you secretly resent, even though you smile and pretend everything is fine?",
+"Are you keeping certain people in your life because you actually love them, or because you are terrified of being alone?",
+"What is the most manipulative thing you regularly do to get your needs met in friendships?",
+"Have you ever secretly felt relieved when a friend failed at something, simply because it made you feel less inferior?",
+"What is the deepest, darkest secret you are keeping from your closest friend or family member?",
+"Do you think anyone in your life truly knows the real you, or just the curated version you perform for them?",
+"If you had to cut ties with everyone you know except one person, who would you keep, and why would you abandon the others?",
+"What is a meaningful relationship you destroyed, and you know deep down it was 100% your fault?",
+"How often do you use your own sadness or past trauma as a weapon to make others feel sorry for you or let you off the hook?",
+"Who are you currently punishing with your silence or emotional distance, and what do you hope to gain from their suffering?",
+"What is the most conditional part of the love you give to your friends and family?",
+"Have you ever stayed friends with someone just because being around them made you feel better about your own flaws?",
+"What is an unforgivable thing you would immediately cut someone off for, even if they had been your best friend for a decade?",
+"Do you actually listen when people pour their hearts out to you, or are you just waiting for your turn to speak?",
+"What is the most toxic behavior you tolerate in others because you secretly believe you do not deserve better?",
+"How do you unconsciously decide who is “worth” your deep empathy and who is not?",
+"If your friends were completely honest with no filter, what would they say is the absolute hardest part about loving you?",
+"What is a boundary you refuse to respect in others because you feel entitled to their time, energy, or bodies?",
+"Are you the toxic person or the villain in someone else's story? What exactly did you do to them?",
+"What is the real, deeply rooted reason you push people away right when they start getting genuinely close to you?",
+"Do you actually want to be deeply known by a partner, or do you just want to be continuously admired?",
+"What is the darkest, most unlovable part of you that you pray a romantic partner never discovers?",
+"Have you ever settled for someone you didn't truly love just because you were exhausted by your own loneliness?",
+"What is a deeply ingrained, toxic relationship pattern you are terrified you will pass down to your children?",
+"Are you capable of loving someone who is fundamentally broken, or do you only want the finished, polished version of a person?",
+"Do you secretly believe that no one will ever be able to love you completely once they see all of you?",
+"What is the most selfish, unfair thing you have ever demanded from a romantic partner?",
+"Would you rather have a lifetime of mediocre, safe, boring love, or one single year of soul-shattering, perfect love that you can never get back?",
+"Do you use sex or physical affection to distract from a profound lack of true emotional intimacy?",
+"What is a fundamental flaw in your partner (or past partners) that you arrogantly convinced yourself you could “fix”?",
+"How much of your desire for a relationship is actually just a desperate desire for someone to save you from yourself?",
+"What is the exact moment you realized you were much harder to love than you originally thought?",
+"Have you ever stayed with someone just because the idea of them being happy with someone else made you physically sick?",
+"If you had to choose between your life's greatest passion and the absolute love of your life, which would you genuinely abandon?",
+"What is a lie you tell your partner to keep the peace, knowing it would completely destroy them if they found out the truth?",
+"Do you think you are truly capable of lifelong monogamy without ever secretly wishing for someone else?",
+"How often do you project your own deep insecurities onto your partner and punish them for your own self-hatred?",
+"What does your deepest, most irrational romantic jealousy actually stem from when you strip away the excuses?",
+"If you knew for an absolute fact your partner would never find out, what is a betrayal you would seriously consider committing?",
+"Do you love your partner for exactly who they are right now, or just for the potential you see in who they could become?",
+"What is the most emotionally violent or cruel thing you have ever said to someone you claimed to love?",
+"Do you think true, lifelong romantic love requires a fundamental loss of your individual identity?",
+"What terrifies you the most about being completely vulnerable with someone who has the power to utterly destroy your life?",
+"Have you ever felt suffocated or utterly trapped by someone's pure, unconditional love for you?",
+"How do you distinguish between genuinely loving someone and just being addicted to the emotional highs and lows they provide?",
+"What is a strict standard you hold your partner to that you consistently fail to meet yourself?",
+"Do you actually want a healthy relationship, or are you secretly bored to death by peace and stability?",
+"What is the exact, unacknowledged reason you believe your next relationship will eventually fail?",
+"Would you honestly stay with your partner if they suffered an accident that fundamentally changed their personality and body forever?",
+"If love is not enough to sustain a relationship, what is the exact breaking point where you would walk away from your soulmate?",
+"What piece of your soul did you leave with a past lover that you know you will never get back?",
+"Have you ever secretly hoped that an ex's new relationship fails miserably just so you can feel validated?",
+"What is a total lie you tell people about why your last relationship ended just to make yourself look like the victim?",
+"Who is the “one that got away,” and what is the real, cowardly reason you let them go?",
+"Do you think you have already ruined the best relationship you will ever have in your entire lifetime?",
+"What is a specific trauma an ex gave you that you are unfairly making your current (or future) partners pay for?",
+"Have you ever broken someone's heart just to see if you had the power to do it?",
+"What is the most pathetic, degrading thing you have ever done to get an ex's attention?",
+"Do you still occasionally check an ex's social media specifically to see if they look miserable without you?",
+"What is a cruel truth an ex told you about yourself that you hated them for, but ultimately knew was completely accurate?",
+"How much of your severe heartbreak was actual grief over losing them, and how much was just your bruised, fragile ego?",
+"What is a highly specific memory of an ex that still has the power to bring you to tears instantly?",
+"Did you actually love them, or did you just love the way they made you feel about yourself?",
+"What is the absolute worst, most unforgivable thing you did to someone you used to love?",
+"Have you ever realized years later that you were actually the abuser or the primary toxic presence in a past dynamic?",
+"What is a sincere apology you owe an ex that you are entirely too cowardly to actually give them?",
+"Do you think a part of your heart will always belong to your first love, no matter who you end up marrying?",
+"What is a toxic coping mechanism you developed during a terrible breakup that is now silently ruining your life?",
+"If your worst ex were forced to write a brutally honest warning label about you for your next partner, what would it say?",
+"Are you actually over your past, or are you just heavily medicated by time, distance, and distractions?",
+"If you died tomorrow, what is the most embarrassing or shameful thing people would find when clearing out your life?",
+"When you look at the trajectory of your life, do you genuinely believe your existence matters on a cosmic scale, or is that just pure human arrogance?",
+"What is the most entirely meaningless thing you dedicate the majority of your time and mental energy to?",
+"If you had to justify your existence to a higher power today, what reason would you give for why you deserve to continue taking up space and resources?",
+"Are you chasing your life goals because they actually fulfill you, or simply because you are terrified of being forgotten when you die?",
+"What is a fantasy or dream you have held onto for so long that it is now actively holding you back from living in reality?",
+"If you found out unequivocally that human life has absolutely zero inherent meaning, would you crumble into depression or would you feel free?",
+"How much of your so-called “purpose” was artificially programmed into you by your parents, capitalism, or societal pressure?",
+"What will be your biggest, most crushing regret on your deathbed if your life continues exactly as it is right now?",
+"Do you actually want to make a difference in the world, or do you just want to be widely recognized and praised as someone who did?",
+"If you were 100% guaranteed to get away with it and it would benefit you immensely, would you permanently ruin an innocent stranger's life?",
+"At what exact point of starvation, poverty, or desperation do you think you would abandon your morals and resort to extreme violence?",
+"What is a horrific event or massive injustice in the world that you pretend to care about publicly, but actually feel entirely indifferent toward?",
+"Do you genuinely care about being a good person at your core, or do you just care about not being perceived as a bad one by society?",
+"If your personal survival strictly required the death of a stranger you would never have to see or know, would you let them die?",
+"What is the most hypocritical moral stance you hold very loudly in public while secretly failing at it in private?",
+"Do you truly believe some people are genuinely beyond all redemption and deserve to suffer endlessly?",
+"How easily do you think you could be brainwashed into committing atrocities if you had been born into a different culture or time period?",
+"If you had a button that would instantly erase the worst 10% of humanity to permanently save the planet, would you press it?",
+"What is a dark, highly intrusive thought you have had that made you genuinely question if you are secretly a monster?",
+"What terrifies you more: the absolute certainty that we are completely alone in a cold, dead universe, or the idea that we are not?",
+"If you died and discovered the afterlife was just reliving your exact same life over and over for eternity with no changes, would that be heaven or hell for you?",
+"Do you ever feel a creeping, isolating sense of dread that your entire reality is just a hallucination or a simulation and none of this is real?",
+"What is the most terrifying realization you have ever had while trying to comprehend the infinite, never-ending size of space?",
+"If a god does exist, do you think they are benevolent, malicious, or completely indifferent to human suffering?",
+"Does the absolute inevitability of your own death comfort you, or does it induce sheer, paralyzing panic?",
+"If you could press a button to instantly know all the absolute secrets of the universe, but the sheer weight of the knowledge would drive you insane, would you press it?",
+"Do you think human consciousness is a beautiful cosmic accident, or a tragic evolutionary mistake that just forces us to suffer and be aware of it?",
+"What if the true “meaning of life” is something so profoundly horrific that human brains literally suppress it just to keep us functioning?",
+"When you stare deep into the night sky, do you feel a warm sense of belonging, or a crushing, suffocating sense of utter insignificance?",
+"What is the exact moment you realized your parents were just flawed, deeply traumatized people who were making it up as they went along?",
+"What is an unfair emotional burden you were forced to carry as a child that fundamentally ruined your ability to trust adults?",
+"How did the specific way you were disciplined or punished as a child secretly shape your deepest fears or coping mechanisms today?",
+"What is the most painful secret you had to keep for your family simply to protect their reputation from the outside world?",
+"Which of your childhood dreams did your parents slowly and systematically kill, whether they meant to or not?",
+"What is a highly toxic family cycle you swore you would break, but secretly catch yourself repeating?",
+"How much of your current personality is a genuine expression of who you are, versus a learned trauma response to survive your childhood environment?",
+"What is the specific, unhealed childhood wound that makes you so desperate for validation and attention today?",
+"Did you ever feel like you had to earn your parents' basic love, and do you still unconsciously feel like you haven't done enough to deserve it?",
+"If you could go back and whisper one terrifying, brutal truth into the ear of your childhood self to prepare them for what is coming, what would it be?",]
+            }
+        };
+        // Sound Effects
+        function playSound(soundId) {
+            try {
+                const audio = document.getElementById(soundId);
+                audio.currentTime = 0;
+                audio.play().catch(() => {});
+            } catch(e) {}
+        }
+        // PWA Support
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (!isPWA) {
+                setTimeout(() => {
+                    document.getElementById('installBanner').style.display = 'inline-block';
+                }, 1000);
+            }
+        });
+        document.getElementById('installClose').onclick = () => {
+            document.getElementById('installBanner').style.display = 'none';
+        };
+        window.addEventListener('appinstalled', () => {
+            isPWA = true;
+            document.getElementById('installBanner').style.display = 'none';
+        });
+        document.getElementById('installBanner').onclick = async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+            }
+        };
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.add('hidden'));
+            document.getElementById(screenId).classList.remove('hidden');
+            playSound('buttonClick');
+        }
+        function showStart() {
+            shuffledDeck = [];
+            currentCardIndex = 0;
+            showScreen('startScreen');
+        }
+        function showHowToPlay() {
+            showScreen('howToPlayScreen');
+        }
+        function showCategories() {
+            showScreen('categoryScreen');
+        }
+        function selectCategory(category) {
+            currentCategory = category;
+            const categoryNames = {
+                'wildcard': 'Wildcard Edition', 
+                'bar': 'Bar Edition', 
+                'spicy': 'Spicy Edition', 
+                'deep': 'Deep Talks Edition'
+            };
+            document.getElementById('categoryTitle').textContent = categoryNames[category];
+            document.getElementById('categoryTitle').className = category === 'deep' ? 'deep-talks-title category-title' : 'category-title';
+            showScreen('difficultyScreen');
+        }
+        function shuffleDeck() {
+            const cards = dares[currentCategory][currentDifficulty].slice();
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+            shuffledDeck = cards;
+            currentCardIndex = 0;
+        }
+        function updateProgress() {
+            const progress = (currentCardIndex / shuffledDeck.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `Card ${currentCardIndex} of ${shuffledDeck.length}`;
+        }
+        function selectDifficulty(difficulty) {
+            currentDifficulty = difficulty;
+            shuffleDeck();
+            showCard();
+        }
+        function showDifficulty() {
+            showScreen('difficultyScreen');
+        }
+        function getNextCard() {
+            if (currentCardIndex >= shuffledDeck.length) {
+                showScreen('finishedScreen');
+                createFireworks();
+                playSound('winSound');
+                document.getElementById('totalCards').textContent = shuffledDeck.length;
+                document.getElementById('finalCategory').textContent = `${currentCategory.toUpperCase()} - ${currentDifficulty.toUpperCase()}`;
+                return null;
+            }
+            return shuffledDeck[currentCardIndex++];
+        }
+        function showCard() {
+            const cardText = getNextCard();
+            if (cardText === null) return;
+            
+            const gameCard = document.getElementById('gameCard');
+            gameCard.className = `card ${currentCategory} shake`;
+            
+            document.getElementById('cardText').innerHTML = cardText;
+            
+            updateProgress();
+            showScreen('cardScreen');
+            playSound('cardFlip');
+            
+            setTimeout(() => {
+                gameCard.classList.remove('shake');
+            }, 600);
+        }
+        function nextCard() {
+            showCard();
+        }
+        function restartGame() {
+            shuffledDeck = [];
+            currentCardIndex = 0;
+            showCategories();
+        }
+        // Touch/Swipe Support
+        let startX = 0, startY = 0;
+        const gameCard = document.getElementById('gameCard');
+        
+        gameCard.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+        gameCard.addEventListener('touchend', (e) => {
+            if (!startX) return;
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+            const diffX = startX - endX;
+            const diffY = Math.abs(startY - endY);
+            
+            if (diffX > 50 && diffY < 100) {
+                nextCard();
+            }
+            startX = 0;
+            startY = 0;
+        }, { passive: true });
+        gameCard.addEventListener('click', nextCard);
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === ' ') {
+                e.preventDefault();
+                nextCard();
+            }
+        });
+        // Fireworks effect
+        function createFireworks() {
+            const fireworks = document.getElementById('fireworks');
+            const colors = ['#ffff44', '#ff8844', '#ff4488', '#8844ff', '#44ff88', '#44ddff'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = '50%';
+                    firework.style.top = '50%';
+                    firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.setProperty('--dx', (Math.random() - 0.5) * 200 + 'px');
+                    firework.style.setProperty('--dy', (Math.random() - 0.5) * 200 + 'px');
+                    fireworks.appendChild(firework);
+                    
+                    setTimeout(() => firework.remove(), 1000);
+                }, i * 50);
+            }
+        }
+        // Initialize
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRDb250ZXh0TGlzdGVuZXIoJ2luc3RhbGwnLCAoKSA9PiB7CiAgc2VsZi5za2lwV2FpdGluZygpOwp9KTs=');
+        }
+    </script>
